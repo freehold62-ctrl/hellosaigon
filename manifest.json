@@ -1,0 +1,27 @@
+{
+  "name": "헬로사이공 - 베트남 여행의 시작",
+  "short_name": "헬로사이공",
+  "description": "베트남 호치민 골프투어, 부동산투어, 공항픽업, 환율/날씨 정보를 한곳에",
+  "lang": "ko",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eef5f7",
+  "theme_color": "#eef5f7",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["travel", "lifestyle"]
+}

@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+
+  <title>hello saigon — 베트남에서의 좋은 하루</title>
+  <meta name="description" content="베트남 호치민 + 붕따우 4박 6일 골프투어, 부동산투어, 공항픽업 등 베트남 여행의 모든 것" />
+
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#eef5f7" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="hello saigon" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-base: #eef5f7;
+      --bg-base-2: #dde9ec;
+      --surface: #ffffff;
+      --card-golf: #8db89e;
+      --card-estate: #6b9bb8;
+      --card-daily: #c9a566;
+      --card-transit: #a8736e;
+      --golf-deep: #3d5e4a;
+      --estate-deep: #2d4d63;
+      --daily-deep: #7a5e2c;
+      --transit-deep: #5e3733;
+      --text-main: #1f2d36;
+      --text-soft: #3d5562;
+      --text-mute: #5d7682;
+      --accent: #4a8a99;
+      --accent-soft: #7eb8c4;
+      --line: rgba(31, 45, 54, 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    html, body {
+      font-family: 'Noto Sans KR', 'Inter', sans-serif;
+      background: var(--bg-base);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    body {
+      background: linear-gradient(180deg, #eef5f7 0%, #dde9ec 100%);
+      background-attachment: fixed;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .page { display: none; min-height: 100vh; padding-bottom: 90px; }
+    .page.active { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 헤더 */
+    .header {
+      padding: 18px 20px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-mark {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600; font-size: 17px;
+      color: #fff; letter-spacing: -0.5px;
+    }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.15; }
+    .logo-text .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500; font-size: 16px;
+      color: var(--text-main); letter-spacing: -0.3px;
+    }
+    .logo-text .sub {
+      font-size: 9px;
+      color: var(--text-mute);
+      letter-spacing: 1.8px; margin-top: 1px;
+      font-family: 'Inter', sans-serif; font-weight: 400;
+    }
+    .header-menu-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; color: var(--text-mute);
+      letter-spacing: 0.5px;
+    }
+
+    /* 내부 페이지 헤더 */
+    .page-header-bar {
+      padding: 18px 20px 14px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .back-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--text-main);
+      transition: all 0.2s;
+    }
+    .back-btn:active { transform: scale(0.92); background: var(--bg-base-2); }
+    .page-title-mini {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500; font-size: 14px;
+      color: var(--text-main); letter-spacing: -0.2px;
+    }
+
+    /* 홈 hero */
+    .hero { padding: 28px 24px 26px; }
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; letter-spacing: 2.5px;
+      color: var(--accent); margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+      font-weight: 500; font-size: 30px;
+      line-height: 1.25; letter-spacing: -0.5px;
+      color: var(--text-main); margin-bottom: 14px;
+    }
+    .hero p {
+      font-size: 12.5px; color: var(--text-soft);
+      line-height: 1.8; letter-spacing: 0.1px;
+    }
+
+    /* 메뉴 카드 그리드 */
+    .menu-grid {
+      padding: 0 18px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 9px;
+    }
+    .menu-card {
+      border-radius: 18px; padding: 18px 15px 16px;
+      cursor: pointer; min-height: 135px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: transform 0.2s ease;
+    }
+    .menu-card:active { transform: scale(0.97); }
+    .menu-card.golf { background: var(--card-golf); }
+    .menu-card.estate { background: var(--card-estate); }
+    .menu-card.daily { background: var(--card-daily); }
+    .menu-card.transit { background: var(--card-transit); }
+    .menu-icon-circle {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 12px;
+    }
+    .menu-icon-circle svg {
+      width: 18px; height: 18px;
+      stroke-width: 1.6; fill: none;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .menu-card.golf .menu-icon-circle svg { stroke: var(--golf-deep); }
+    .menu-card.estate .menu-icon-circle svg { stroke: var(--estate-deep); }
+    .menu-card.daily .menu-icon-circle svg { stroke: var(--daily-deep); }
+    .menu-card.transit .menu-icon-circle svg { stroke: var(--transit-deep); }
+    .menu-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500; font-size: 17px;
+      color: #fff; letter-spacing: -0.3px; margin-bottom: 2px;
+    }
+    .menu-sub {
+      font-size: 11px; color: rgba(255,255,255,0.85); line-height: 1.5;
+    }
+    .menu-arrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; color: #fff;
+      margin-top: 8px; letter-spacing: 0.5px;
+    }
+
+    /* 카페 배너 */
+    .secondary-banners {
+      padding: 16px 18px 0;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .cafe-banner {
+      padding: 14px 16px; background: var(--surface);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; transition: transform 0.15s;
+    }
+    .cafe-banner:active { transform: scale(0.98); }
+    .cafe-banner .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px; color: var(--text-mute);
+      letter-spacing: 1.5px; margin-bottom: 3px;
+    }
+    .cafe-banner .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500; font-size: 14px;
+      color: var(--text-main); letter-spacing: -0.2px;
+    }
+    .cafe-banner .chevron {
+      font-family: 'Inter', sans-serif;
+      color: var(--accent); font-size: 16px;
+    }
+
+    /* 하단 카톡 버튼 */
+    .floating-cta {
+      position: fixed; bottom: 18px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 100; padding: 0 18px;
+      width: 100%; max-width: 480px;
+    }
+    .cta-btn {
+      width: 100%; padding: 14px 18px;
+      border-radius: 50px; border: none;
+      background: var(--text-main); color: var(--bg-base);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 500; font-size: 13px;
+      letter-spacing: 0.5px; cursor: pointer;
+      box-shadow: 0 8px 24px rgba(31,45,54,0.2);
+      transition: transform 0.15s;
+    }
+    .cta-btn:active { transform: scale(0.97); }
+
+    /* 내부 페이지 공통 */
+    .page-content { padding: 16px 22px 0; }
+    .page-intro { margin-bottom: 24px; }
+    .page-intro .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; letter-spacing: 2.5px;
+      color: var(--accent); margin-bottom: 10px;
+    }
+    .page-intro h2 {
+      font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+      font-weight: 500; font-size: 26px;
+      letter-spacing: -0.5px; line-height: 1.3;
+      color: var(--text-main);
+    }
+    .page-intro p {
+      margin-top: 10px; font-size: 12.5px;
+      color: var(--text-soft); line-height: 1.8;
+    }
+
+    /* ============================================
+       골프 — 패키지 헤드 (메인 정보)
+       ============================================ */
+    .package-head {
+      background: linear-gradient(135deg, var(--card-golf) 0%, #7aa68d 100%);
+      border-radius: 20px;
+      padding: 24px 22px;
+      color: #fff;
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .package-head .pkg-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; letter-spacing: 2.5px;
+      opacity: 0.85; margin-bottom: 10px;
+    }
+    .package-head .pkg-title {
+      font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+      font-weight: 500; font-size: 22px;
+      line-height: 1.35; letter-spacing: -0.4px;
+      margin-bottom: 14px;
+    }
+    .package-head .pkg-meta {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .package-head .meta-pill {
+      padding: 4px 11px;
+      background: rgba(255,255,255,0.22);
+      border-radius: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5px; font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .package-head .pkg-price-row {
+      display: flex; align-items: baseline; gap: 8px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .package-head .price-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; letter-spacing: 1.5px;
+      opacity: 0.8;
+    }
+    .package-head .price-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 22px;
+      font-weight: 500;
+    }
+    .package-head .price-note {
+      font-size: 10.5px; opacity: 0.8;
+      margin-top: 4px;
+    }
+
+    /* ============================================
+       베트남 남부 일러스트 지도
+       ============================================ */
+    .map-section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 14px;
+    }
+    .map-section .map-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; letter-spacing: 2px;
+      color: var(--accent); margin-bottom: 4px;
+    }
+    .map-section .map-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500; font-size: 16px;
+      color: var(--text-main); margin-bottom: 14px;
+      letter-spacing: -0.2px;
+    }
+    /* 구글 지도 컨테이너 */
+    .google-map {
+      width: 100%;
+      aspect-ratio: 4 / 3.2;
+      background: linear-gradient(180deg, #f4f9fb 0%, #e8f0f4 100%);
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+    .google-map.loading::before {
+      content: '지도 불러오는 중...';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--text-mute);
+      font-size: 14px;
+      z-index: 1;
+    }
+
+    /* Day 토글 버튼 */
+    .day-toggle {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .day-btn {
+      flex: 1;
+      min-width: 60px;
+      padding: 8px 12px;
+      border: 1px solid var(--border-soft);
+      background: var(--bg-base);
+      color: var(--text-soft);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .day-btn:hover {
+      background: #fff;
+      border-color: var(--accent);
+    }
+    .day-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* 인포윈도우 (구글 지도 팝업) 스타일링 */
+    .gm-style .gm-style-iw-c {
+      border-radius: 12px !important;
+      padding: 0 !important;
+      max-width: 280px !important;
+    }
+    .gm-style-iw-d {
+      overflow: hidden !important;
+    }
+    .iw-content {
+      font-family: 'Noto Sans KR', sans-serif;
+      padding: 14px 16px 12px;
+      max-width: 260px;
+    }
+    .iw-content .iw-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .iw-content .iw-name-kr {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+    .iw-content .iw-rating {
+      font-size: 12px;
+      color: #d4a843;
+      margin-bottom: 6px;
+    }
+    .iw-content .iw-info {
+      font-size: 11.5px;
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    .iw-content .iw-link {
+      display: inline-block;
+      padding: 7px 14px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .iw-content .iw-link:hover { opacity: 0.85; }
+
+    /* 지도 범례 */
+    .map-legend {
+      margin-top: 14px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .map-legend-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 12px;
+      background: var(--bg-base);
+      border-radius: 10px;
+    }
+    .legend-marker {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .legend-marker.airport { background: #6c7980; }
+    .legend-marker.golf { background: var(--card-golf); }
+    .legend-marker.hotel { background: var(--card-estate); }
+    .legend-marker.dining { background: var(--card-daily); }
+    .legend-marker.spa { background: var(--card-transit); }
+    .legend-marker.cafe { background: #8a6f4d; }
+    .legend-marker.estate { background: var(--card-estate); }
+
+    .legend-text {
+      flex: 1; font-size: 12px; line-height: 1.6;
+      color: var(--text-soft);
+    }
+    .legend-text .name {
+      color: var(--text-main); font-weight: 500;
+    }
+    .legend-text .small {
+      font-size: 10.5px; color: var(--text-mute);
+    }
+
+
+    /* ============================================
+       일정표 — 일자별 카드
+       ============================================ */
+    .schedule-section {
+      margin-bottom: 14px;
+    }
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; letter-spacing: 2px;
+      color: var(--accent); margin-bottom: 8px;
+      padding-left: 4px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500; font-size: 18px;
+      color: var(--text-main); margin-bottom: 12px;
+      letter-spacing: -0.2px; padding-left: 4px;
+    }
+
+    .day-card {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+      margin-bottom: 10px;
+    }
+    .day-card .day-header {
+      display: flex; align-items: baseline; gap: 8px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+    .day-card .day-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 500;
+      font-size: 18px; color: var(--accent);
+    }
+    .day-card .day-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500; font-size: 14px;
+      color: var(--text-main); letter-spacing: -0.2px;
+    }
+    .day-card .day-flag {
+      font-size: 13px;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 10px;
+      padding: 5px 0;
+    }
+    .timeline-item .time-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9.5px; letter-spacing: 1.2px;
+      color: var(--accent);
+      padding-top: 3px;
+      font-weight: 500;
+    }
+    .timeline-item .time-content {
+      font-size: 12px; color: var(--text-soft);
+      line-height: 1.65;
+    }
+    .timeline-item .time-content b {
+      color: var(--text-main); font-weight: 500;
+    }
+
+    /* 포함/불포함 카드 */
+    .info-block {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 10px;
+    }
+    .info-block-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; letter-spacing: 2px;
+      color: var(--accent); margin-bottom: 10px;
+    }
+    .feature-list { list-style: none; padding: 0; margin: 0; }
+    .feature-list li {
+      font-size: 12px; color: var(--text-soft);
+      padding: 5px 0 5px 18px;
+      position: relative; line-height: 1.6;
+    }
+    .feature-list li::before {
+      content: ''; position: absolute;
+      left: 0; top: 12px;
+      width: 8px; height: 1px;
+      background: var(--text-mute);
+    }
+    .feature-list.exclude li::before {
+      background: var(--card-transit);
+    }
+
+    /* 시그니처 (강점) 박스 */
+    .signature-box {
+      background: linear-gradient(135deg, rgba(74,138,153,0.06), rgba(141,184,158,0.08));
+      border: 1px solid rgba(74,138,153,0.15);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+    .signature-box h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500; font-size: 16px;
+      color: var(--text-main); margin-bottom: 12px;
+      letter-spacing: -0.2px;
+    }
+    .signature-list {
+      list-style: none; padding: 0;
+    }
+    .signature-list li {
+      font-size: 12px; color: var(--text-soft);
+      padding: 6px 0 6px 22px;
+      position: relative; line-height: 1.65;
+    }
+    .signature-list li::before {
+      content: '✦'; position: absolute;
+      left: 4px; top: 6px;
+      color: var(--accent); font-size: 11px;
+    }
+    .signature-list li b {
+      color: var(--text-main); font-weight: 500;
+    }
+
+    /* 그룹 맞춤 카드 */
+    .product-card {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+    .product-card .badge {
+      display: inline-block;
+      padding: 4px 11px;
+      background: var(--accent);
+      color: #fff; border-radius: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 9.5px; font-weight: 500;
+      letter-spacing: 1px; margin-bottom: 12px;
+    }
+    .product-card .badge.estate { background: var(--card-estate); }
+    .product-card .badge.daily { background: var(--card-daily); }
+    .product-card .badge.transit { background: var(--card-transit); }
+    .product-card h3 {
+      font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+      font-weight: 500; font-size: 18px;
+      color: var(--text-main); letter-spacing: -0.3px;
+      line-height: 1.4; margin-bottom: 8px;
+    }
+    .product-card .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 15px;
+      color: var(--accent); margin: 8px 0 12px;
+      font-weight: 500;
+    }
+    .product-card .desc {
+      font-size: 12px; color: var(--text-soft);
+      line-height: 1.8;
+    }
+
+    /* 픽업 가격표 */
+    .price-table {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 18px 16px;
+      margin-bottom: 10px;
+    }
+    .price-table-header {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr;
+      gap: 8px;
+      padding: 8px 4px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 4px;
+    }
+    .price-table-header .col-route {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; letter-spacing: 1px;
+      color: var(--text-mute); font-weight: 500;
+    }
+    .price-table-header .col-price {
+      font-family: 'Inter', sans-serif;
+      font-size: 9.5px; letter-spacing: 0.5px;
+      color: var(--text-mute); text-align: right;
+    }
+    .price-row {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr;
+      gap: 8px;
+      padding: 11px 4px;
+      align-items: center;
+      border-bottom: 1px solid rgba(31,45,54,0.05);
+    }
+    .price-row:last-child { border-bottom: none; }
+    .price-row .route-name {
+      font-size: 12px;
+      color: var(--text-main);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    .price-row .price-cell {
+      text-align: right;
+    }
+    .price-row .price-krw {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .price-row .price-vnd {
+      font-size: 9.5px;
+      color: var(--text-mute);
+      margin-top: 1px;
+    }
+
+    /* 차량 안내 카드 */
+    .vehicle-info {
+      background: linear-gradient(135deg, rgba(168,115,110,0.08), rgba(168,115,110,0.04));
+      border: 1px solid rgba(168,115,110,0.15);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 10px;
+    }
+    .vehicle-info-row {
+      display: flex;
+      gap: 10px;
+      padding: 6px 0;
+      align-items: baseline;
+    }
+    .vehicle-info-row:not(:last-child) {
+      border-bottom: 1px solid rgba(168,115,110,0.08);
+    }
+    .vehicle-info-row .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9.5px; letter-spacing: 1px;
+      color: var(--card-transit);
+      font-weight: 600;
+      min-width: 56px;
+    }
+    .vehicle-info-row .value {
+      font-size: 11.5px;
+      color: var(--text-soft);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .vehicle-info-row .value b {
+      color: var(--text-main);
+    }
+
+    /* 환산 안내 */
+    .exchange-note {
+      background: rgba(74,138,153,0.06);
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+      font-size: 11px;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+    .exchange-note b {
+      color: var(--text-main);
+    }
+
+    /* Daily 페이지 */
+    .info-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 12px;
+    }
+    .info-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500; font-size: 15px;
+      color: var(--text-main); margin-bottom: 14px;
+      letter-spacing: -0.2px;
+    }
+    .info-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row .from { font-size: 12.5px; color: var(--text-soft); }
+    .info-row .to {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px; font-weight: 500;
+      color: var(--text-main);
+    }
+    .weather-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center; gap: 10px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .weather-row:last-child { border-bottom: none; }
+    .weather-row .city-name {
+      font-size: 12.5px; color: var(--text-main); font-weight: 500;
+    }
+    .weather-row .city-region {
+      font-size: 10px; color: var(--text-mute); margin-left: 4px;
+    }
+    .weather-row .desc { font-size: 11px; color: var(--text-soft); }
+    .weather-row .temp {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; color: var(--accent); font-weight: 500;
+      min-width: 36px; text-align: right;
+    }
+
+    /* PWA 설치 배너 */
+    .install-banner {
+      margin: 0 18px 14px;
+      padding: 14px 16px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      display: none;
+      align-items: center; gap: 12px;
+      animation: fadeIn 0.4s ease;
+    }
+    .install-banner.show { display: flex; }
+    .install-banner .text {
+      flex: 1; font-size: 11px;
+      color: var(--text-soft); line-height: 1.6;
+    }
+    .install-banner .text b { color: var(--text-main); font-weight: 500; }
+    .install-banner button {
+      padding: 8px 14px; border-radius: 8px;
+      border: 1px solid var(--text-main);
+      background: var(--text-main); color: var(--bg-base);
+      font-size: 11px; font-weight: 500;
+      cursor: pointer; font-family: inherit;
+    }
+    .install-banner .close-x {
+      background: transparent; border: none;
+      color: var(--text-mute); padding: 4px 6px; font-size: 14px;
+    }
+
+    /* 푸터 */
+    .footer {
+      padding: 36px 20px 20px;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px; color: var(--text-mute);
+      line-height: 2; letter-spacing: 0.3px;
+    }
+    .footer .brand {
+      font-style: italic; color: var(--accent); font-weight: 500;
+    }
+
+    @media (max-width: 360px) {
+      .hero h1 { font-size: 26px; }
+      .menu-card { min-height: 125px; padding: 16px 13px; }
+      .menu-name { font-size: 15px; }
+      .package-head .pkg-title { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG 아이콘 정의 -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="ic-golf" viewBox="0 0 24 24">
+        <path d="M5 21h14M9 21V4l7 3-7 3"/>
+        <circle cx="9" cy="19" r="1.2" fill="currentColor" stroke="none"/>
+      </symbol>
+      <symbol id="ic-estate" viewBox="0 0 24 24">
+        <path d="M3 21h18M5 21V8l7-4 7 4v13M9 12h2M9 16h2M13 12h2M13 16h2"/>
+      </symbol>
+      <symbol id="ic-daily" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M12 3v9l6 4"/>
+      </symbol>
+      <symbol id="ic-transit" viewBox="0 0 24 24">
+        <path d="M5 17h14M5 17v-5l2-5h10l2 5v5M5 17v2M19 17v2"/>
+        <circle cx="8" cy="14" r="1.2" fill="currentColor" stroke="none"/>
+        <circle cx="16" cy="14" r="1.2" fill="currentColor" stroke="none"/>
+      </symbol>
+      <symbol id="ic-back" viewBox="0 0 24 24">
+        <path d="M15 5l-7 7 7 7"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- =============================================
+       홈 페이지
+       ============================================= -->
+  <div class="page active" id="page-home">
+    <div class="header">
+      <div class="logo">
+        <div class="logo-mark">h</div>
+        <div class="logo-text">
+          <div class="title">hello saigon</div>
+          <div class="sub">VIETNAM CONCIERGE</div>
+        </div>
+      </div>
+      <div class="header-menu-text">menu</div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-eyebrow">NO. 01 — WELCOME</div>
+      <h1>베트남에서의<br/>좋은 하루.</h1>
+      <p>호치민의 골프, 부동산, 일상의 정보를<br/>차분하게 안내합니다.</p>
+    </section>
+
+    <div class="install-banner" id="installBanner">
+      <div class="text">
+        <b>홈 화면에 추가</b>해서<br/>앱처럼 사용하세요
+      </div>
+      <button id="installBtn">설치</button>
+      <button class="close-x" onclick="document.getElementById('installBanner').classList.remove('show')">×</button>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-card golf" onclick="goPage('golf')">
+        <div>
+          <div class="menu-icon-circle"><svg><use href="#ic-golf"/></svg></div>
+          <div class="menu-name">Golf</div>
+          <div class="menu-sub">4박 6일 투어</div>
+        </div>
+        <div class="menu-arrow">→</div>
+      </div>
+      <div class="menu-card estate" onclick="goPage('estate')">
+        <div>
+          <div class="menu-icon-circle"><svg><use href="#ic-estate"/></svg></div>
+          <div class="menu-name">Estate</div>
+          <div class="menu-sub">4박 5일 투어</div>
+        </div>
+        <div class="menu-arrow">→</div>
+      </div>
+      <div class="menu-card daily" onclick="goPage('daily')">
+        <div>
+          <div class="menu-icon-circle"><svg><use href="#ic-daily"/></svg></div>
+          <div class="menu-name">Daily</div>
+          <div class="menu-sub">환율 · 날씨</div>
+        </div>
+        <div class="menu-arrow">→</div>
+      </div>
+      <div class="menu-card transit" onclick="goPage('transit')">
+        <div>
+          <div class="menu-icon-circle"><svg><use href="#ic-transit"/></svg></div>
+          <div class="menu-name">Transit</div>
+          <div class="menu-sub">공항 픽업</div>
+        </div>
+        <div class="menu-arrow">→</div>
+      </div>
+    </div>
+
+    <div class="secondary-banners">
+      <div class="cafe-banner" onclick="openExternal('https://cafe.naver.com/hellosaigon')">
+        <div>
+          <div class="label">COMMUNITY</div>
+          <div class="title">네이버 카페 둘러보기</div>
+        </div>
+        <div class="chevron">→</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="brand">— hello saigon —</div>
+      vietnam · travel · lifestyle<br/>
+      since 2024
+    </div>
+  </div>
+
+  <!-- =============================================
+       Golf 페이지 — 4박 6일 실제 패키지
+       ============================================= -->
+  <div class="page" id="page-golf">
+    <div class="page-header-bar">
+      <button class="back-btn" onclick="goPage('home')">
+        <svg width="14" height="14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-back"/></svg>
+      </button>
+      <div class="page-title-mini">Golf</div>
+      <div style="width: 36px;"></div>
+    </div>
+
+    <div class="page-content">
+      <div class="page-intro">
+        <div class="eyebrow">NO. 02 — GOLF TOUR</div>
+        <h2>호치민 + 붕따우<br/>4박 6일 골프투어</h2>
+        <p>붕따우 풀빌라와 호치민 4성급 호텔에서 머물며<br/>총 4회 라운딩을 즐기는 시그니처 패키지.</p>
+      </div>
+
+      <!-- 패키지 메인 정보 -->
+      <div class="package-head">
+        <div class="pkg-eyebrow">SIGNATURE PACKAGE</div>
+        <div class="pkg-title">호치민 + 붕따우<br/>4박 6일 골프투어</div>
+        <div class="pkg-meta">
+          <span class="meta-pill">4박 6일</span>
+          <span class="meta-pill">총 4회 라운딩</span>
+          <span class="meta-pill">붕따우 풀빌라</span>
+          <span class="meta-pill">호치민 4성급</span>
+        </div>
+        <div class="pkg-price-row">
+          <div>
+            <div class="price-label">FROM</div>
+            <div class="price-value">180만원대 / 1인</div>
+            <div class="price-note">※ 항공권 별도, 부가세 별도</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 베트남 남부 — 실제 구글 지도 동선 -->
+      <div class="map-section">
+        <div class="map-label">TOUR ROUTE · LIVE MAP</div>
+        <div class="map-title">투어 동선 지도</div>
+
+        <!-- Day 토글 버튼 -->
+        <div class="day-toggle" id="golfDayToggle">
+          <button class="day-btn active" data-day="all">전체</button>
+          <button class="day-btn" data-day="1">Day 1</button>
+          <button class="day-btn" data-day="2">Day 2</button>
+          <button class="day-btn" data-day="3">Day 3</button>
+          <button class="day-btn" data-day="4">Day 4</button>
+          <button class="day-btn" data-day="5">Day 5</button>
+        </div>
+
+        <!-- 구글 지도 -->
+        <div id="golf-map" class="google-map"></div>
+
+        <!-- 마커 범례 -->
+        <div class="map-legend">
+          <div class="map-legend-item">
+            <div class="legend-marker airport">✈</div>
+            <div class="legend-text">
+              <span class="name">공항 — 떤손녓 국제공항 (SGN)</span><br/>
+              <span class="small">Day 1 도착 / Day 5 출국</span>
+            </div>
+          </div>
+          <div class="map-legend-item">
+            <div class="legend-marker golf">⛳</div>
+            <div class="legend-text">
+              <span class="name">골프장 — 4회 × 18홀</span><br/>
+              <span class="small">파라다이스 · 정산 · 베트남CC · 떤손녓</span>
+            </div>
+          </div>
+          <div class="map-legend-item">
+            <div class="legend-marker hotel">🏨</div>
+            <div class="legend-text">
+              <span class="name">숙소 — 풀빌라 + 4성급 호텔</span><br/>
+              <span class="small">TRAN DUY VILLA + Lancaster</span>
+            </div>
+          </div>
+          <div class="map-legend-item">
+            <div class="legend-marker dining">🍽</div>
+            <div class="legend-text">
+              <span class="name">식당 — 4회 디너</span><br/>
+              <span class="small">Gành Hào · Ngon · Poseidon · Cơm Niêu</span>
+            </div>
+          </div>
+          <div class="map-legend-item">
+            <div class="legend-marker spa">💆</div>
+            <div class="legend-text">
+              <span class="name">마사지 — 2회</span><br/>
+              <span class="small">Rosemary(붕따우) · Saigon Dep(타오디엔)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 시그니처 (강점) -->
+      <div class="signature-box">
+        <h4>이 투어만의 시그니처</h4>
+        <ul class="signature-list">
+          <li><b>4회 × 18홀 라운딩</b> — 붕따우(파라다이스) + 동나이(에메랄드) + 호치민(베트남CC) + 떤손녓</li>
+          <li><b>붕따우 풀빌라</b> + <b>호치민 4성급 호텔</b></li>
+          <li><b>한국 운영 골프장 포함</b> — 태광 정산 CC (한국인 친화)</li>
+          <li><b>마사지 2회 포함</b> — Rosemary Spa(붕따우) + Saigon Dep Spa(타오디엔)</li>
+          <li><b>붕따우 페어웰 시푸드</b> — Gành Hào (평점 4.3, 리뷰 9,820)</li>
+          <li><b>로컬 이발소 체험</b> · 카페 · 페어웰 디너 등 현지 문화 경험</li>
+        </ul>
+      </div>
+
+      <!-- 일정표 -->
+      <div class="schedule-section">
+        <div class="section-label">SCHEDULE</div>
+        <div class="section-title">4박 6일 일정</div>
+
+        <!-- Day 1 -->
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-num">Day 1</span>
+            <span class="day-title">입국 · 붕따우 도착 · 휴식</span>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">AM</div>
+            <div class="time-content"><b>떤손녓 공항 도착</b><br/>픽업 차량으로 붕따우 이동 (약 2시간)</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">PM</div>
+            <div class="time-content"><b>TRAN DUY VILLA C5</b> 체크인<br/><span style="font-size: 10.5px; color: var(--text-mute);">붕따우 Bãi Sau 해변가 풀빌라</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">EVE</div>
+            <div class="time-content">호텔 디너 + 휴식<br/><span style="font-size: 10.5px; color: var(--text-mute);">장거리 비행 후 첫 밤은 편안하게</span></div>
+          </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-num">Day 2</span>
+            <span class="day-title">붕따우 라운딩 · 페어웰 디너</span>
+            <span class="day-flag">⛳</span>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">AM</div>
+            <div class="time-content"><b>Vung Tau Paradise CC</b> 18홀 라운딩<br/><span style="font-size: 10.5px; color: var(--text-mute);">바다 조망 27홀 시사이드 코스</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">LUNCH</div>
+            <div class="time-content">골프장 클럽하우스 식사</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">PM</div>
+            <div class="time-content">풀빌라 휴식 → <b>Rosemary Spa 마사지</b><br/><span style="font-size: 10.5px; color: var(--text-mute);">420 Lê Hồng Phong, 평점 4.8/5</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">EVE</div>
+            <div class="time-content"><b>Gành Hào Seafood</b> 페어웰 디너<br/><span style="font-size: 10.5px; color: var(--text-mute);">붕따우 대표 시푸드 · 사이공베이 뷰</span></div>
+          </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-num">Day 3</span>
+            <span class="day-title">에메랄드 CC → 호치민</span>
+            <span class="day-flag">⛳</span>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">AM</div>
+            <div class="time-content">동나이 강 섬 이동 (약 1시간)<br/><b>Taekwang Jeongsan CC</b> 18홀 라운딩<br/><span style="font-size: 10.5px; color: var(--text-mute);">한국 태광그룹 운영 · 에메랄드 CC</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">LUNCH</div>
+            <div class="time-content">정산 CC 클럽하우스 (강뷰)</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">PM</div>
+            <div class="time-content"><b>Lancaster Lê Thánh Tôn</b> 체크인<br/><span style="font-size: 10.5px; color: var(--text-mute);">1군 중심가 · 일본인 거리 인근</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">EVE</div>
+            <div class="time-content"><b>Ngon Restaurant</b> 디너<br/><span style="font-size: 10.5px; color: var(--text-mute);">160 Pasteur · 베트남 전통 정식</span></div>
+          </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-num">Day 4</span>
+            <span class="day-title">베트남 CC · 타오디엔 · 사이공강 디너</span>
+            <span class="day-flag">⛳</span>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">AM</div>
+            <div class="time-content"><b>Vietnam Golf & CC (투득)</b> 18홀 라운딩<br/><span style="font-size: 10.5px; color: var(--text-mute);">호텔에서 차로 30분</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">LUNCH</div>
+            <div class="time-content">골프장 클럽하우스 식사</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">PM</div>
+            <div class="time-content"><b>Saigon Dep Spa</b> 마사지<br/><span style="font-size: 10.5px; color: var(--text-mute);">2군 타오디엔 · 평점 4.7/5</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">EVE</div>
+            <div class="time-content"><b>Poseidon @ Saigon Marina IFC</b> 디너<br/><span style="font-size: 10.5px; color: var(--text-mute);">사이공강변 55층 랜드마크</span></div>
+          </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-num">Day 5</span>
+            <span class="day-title">떤손녓 CC · 페어웰 · 출국</span>
+            <span class="day-flag">⛳</span>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">AM</div>
+            <div class="time-content"><b>Tan Son Nhat Golf</b> 18홀 라운딩<br/><span style="font-size: 10.5px; color: var(--text-mute);">공항 옆 36홀 코스 · 평점 4.3/5</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">LUNCH</div>
+            <div class="time-content">골프장 클럽하우스 식사</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">PM</div>
+            <div class="time-content"><b>고향이발관 2</b> 한국식 헤어컷<br/><span style="font-size: 10.5px; color: var(--text-mute);">234 Cộng Hòa · 한국인 단골 이발소</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">EVE</div>
+            <div class="time-content"><b>Mien Dong Thao</b> 카페 → <b>Cơm Niêu</b> 페어웰 디너<br/><span style="font-size: 10.5px; color: var(--text-mute);">정원형 클래식 카페 · 베트남 솥밥 정식</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">NIGHT</div>
+            <div class="time-content">떤손녓 공항 이동 & 출국</div>
+          </div>
+        </div>
+
+        <!-- Day 6 -->
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-num">Day 6</span>
+            <span class="day-title">귀국</span>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">AM</div>
+            <div class="time-content">새벽 비행 후 <b>한국 도착</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 그룹 인원 -->
+      <div class="info-block">
+        <div class="info-block-title">GROUP · 그룹 인원</div>
+        <ul class="feature-list">
+          <li><b>4인 기준</b></li>
+        </ul>
+      </div>
+
+      <!-- 불포함 사항 -->
+      <div class="info-block">
+        <div class="info-block-title">EXCLUDED · 불포함 사항</div>
+        <ul class="feature-list exclude">
+          <li>비행기 티켓 (한국 ↔ 호치민)</li>
+          <li>캐디 팁</li>
+          <li>기타 매너 팁</li>
+          <li>주류 및 음료</li>
+        </ul>
+      </div>
+
+      <!-- 그룹 맞춤 -->
+      <div class="product-card">
+        <span class="badge">CUSTOM</span>
+        <h3>그룹 맞춤 골프 투어</h3>
+        <div class="price">인원 · 일정 맞춤</div>
+        <p class="desc">4인 이상 그룹 단위로 일정과 골프장, 호텔을 자유롭게 구성해드립니다. 카카오톡으로 상담 신청해주세요.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       Estate 페이지
+       ============================================= -->
+  <div class="page" id="page-estate">
+    <div class="page-header-bar">
+      <button class="back-btn" onclick="goPage('home')">
+        <svg width="14" height="14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-back"/></svg>
+      </button>
+      <div class="page-title-mini">Estate</div>
+      <div style="width: 36px;"></div>
+    </div>
+
+    <div class="page-content">
+      <div class="page-intro">
+        <div class="eyebrow">NO. 03 — REAL ESTATE TOUR</div>
+        <h2>호치민시 부동산<br/>& 도심 투어</h2>
+        <p>"먹고, 즐기고, 투자하라"<br/>헬로사이공 4박 5일 풀패키지.</p>
+      </div>
+
+      <!-- 메인 패키지 카드 - 슬레이트 블루 -->
+      <div class="package-head" style="background: linear-gradient(135deg, var(--card-estate) 0%, #5a89a6 100%);">
+        <div class="pkg-eyebrow">SIGNATURE PACKAGE</div>
+        <div class="pkg-title">호치민시 부동산<br/>& 도심 투어</div>
+        <div class="pkg-meta">
+          <span class="meta-pill">4박 5일</span>
+          <span class="meta-pill">롯데호텔 기준</span>
+          <span class="meta-pill">VIP 차량</span>
+          <span class="meta-pill">한국어 가이드</span>
+        </div>
+        <div class="pkg-price-row">
+          <div>
+            <div class="price-label">FROM</div>
+            <div class="price-value">$1,000 / 1인</div>
+            <div class="price-note">※ 비행기티켓 제외 · 롯데호텔 기준</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4가지 핵심 가치 -->
+      <div class="signature-box">
+        <h4>4가지 핵심 가치</h4>
+        <ul class="signature-list">
+          <li><b>임장</b> — 빈탄/투티엠/1군 + 7군 푸미흥 + 2군 타오디엔 + 9군 빈홈 그랜드파크 (호치민 4대 권역)</li>
+          <li><b>전문가 Q&A</b> — Day 4 오전, 현지 부동산 전문가와 1:1 종합 상담 시간</li>
+          <li><b>식도락</b> — 베트남 정식, 한식, 채식, 시푸드 부페까지 다양한 미식 경험</li>
+          <li><b>힐링</b> — 한국식 사우나(만다린) + 푸미흥 마사지(N Spa) 2회 포함</li>
+        </ul>
+      </div>
+
+      <!-- 부동산투어 동선 지도 -->
+      <div class="map-section">
+        <div class="map-label">TOUR ROUTE · LIVE MAP</div>
+        <div class="map-title">호치민 4대 권역 동선 지도</div>
+
+        <!-- Day 토글 버튼 -->
+        <div class="day-toggle" id="estateDayToggle">
+          <button class="day-btn active" data-day="all">전체</button>
+          <button class="day-btn" data-day="2">Day 2</button>
+          <button class="day-btn" data-day="3">Day 3</button>
+          <button class="day-btn" data-day="4">Day 4</button>
+        </div>
+
+        <!-- 구글 지도 -->
+        <div id="estate-map" class="google-map"></div>
+
+        <!-- 마커 범례 -->
+        <div class="map-legend">
+          <div class="map-legend-item">
+            <div class="legend-marker hotel">🏨</div>
+            <div class="legend-text">
+              <span class="name">베이스 호텔 — 롯데호텔 사이공</span><br/>
+              <span class="small">매일 출발/복귀 · 4박</span>
+            </div>
+          </div>
+          <div class="map-legend-item">
+            <div class="legend-marker estate">🏢</div>
+            <div class="legend-text">
+              <span class="name">임장 단지 — 8개 (4대 권역)</span><br/>
+              <span class="small">랜드마크81 · 메트로폴 · 그랜드마리나 · 시닉밸리 · 미드타운 · 마스터리 · 게이트웨이 · 빈홈 그랜드파크</span>
+            </div>
+          </div>
+          <div class="map-legend-item">
+            <div class="legend-marker dining">🍽</div>
+            <div class="legend-text">
+              <span class="name">식사 — 5회 (점심/디너)</span><br/>
+              <span class="small">Ngon · AN 채식 · Di Mai · 맛찬들 · 포세이돈</span>
+            </div>
+          </div>
+          <div class="map-legend-item">
+            <div class="legend-marker spa">💆</div>
+            <div class="legend-text">
+              <span class="name">마사지 — 2회</span><br/>
+              <span class="small">Mandarin Spa(타오디엔) · N Spa(푸미흥)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 투어 일정표 -->
+      <div class="schedule-section">
+        <div class="section-label">SCHEDULE</div>
+        <div class="section-title">4박 5일 일정</div>
+
+        <!-- Day 1 -->
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-num">Day 1</span>
+            <span class="day-title">입국 · 롯데호텔 체크인</span>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">PM</div>
+            <div class="time-content"><b>떤손녓 공항 도착</b> · 픽업 차량으로 이동</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">EVE</div>
+            <div class="time-content"><b>롯데호텔 사이공</b> 체크인 + 휴식<br/><span style="font-size: 10.5px; color: var(--text-mute);">4박 동안 베이스 호텔 · 평점 4.6/5</span></div>
+          </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-num">Day 2</span>
+            <span class="day-title">신흥 부촌 임장</span>
+            <span class="day-flag">🏙️</span>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">AREA</div>
+            <div class="time-content"><b>빈탄군 · 투티엠 · 1군 중심가</b></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">임장</div>
+            <div class="time-content">랜드마크 81 (빈홈 센트럴파크)<br/>메트로폴 (투티엠) · 그랜드마리나 (1군)</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">힐링</div>
+            <div class="time-content"><b>Mandarin Spa</b> 마사지<br/><span style="font-size: 10.5px; color: var(--text-mute);">12 Thảo Điền · 한국식 사우나 보유</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">식사</div>
+            <div class="time-content"><b>Ngon Restaurant</b> 디너<br/><span style="font-size: 10.5px; color: var(--text-mute);">160 Pasteur · 베트남 전통 정식</span></div>
+          </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-num">Day 3</span>
+            <span class="day-title">전통 강자 · 7군 푸미흥</span>
+            <span class="day-flag">🏘️</span>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">AREA</div>
+            <div class="time-content"><b>7군 푸미흥</b> · 한국 교민 거주 중심지</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">임장</div>
+            <div class="time-content">시닉 밸리 · 미드타운 M7<br/>크레센트 몰 (상권)</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">점심</div>
+            <div class="time-content"><b>AN 채식식당</b> (220 Phạm Thái Bường)<br/><span style="font-size: 10.5px; color: var(--text-mute);">정원형 채식 · 건강한 한 끼</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">힐링</div>
+            <div class="time-content"><b>N Spa - Massage Body Q7</b><br/><span style="font-size: 10.5px; color: var(--text-mute);">198 Hà Huy Tập · 평점 4.7/5</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">디너</div>
+            <div class="time-content"><b>맛찬들 푸미흥</b> 한식 BBQ<br/><span style="font-size: 10.5px; color: var(--text-mute);">한인타운 한식 고정 · 평점 4.5/5</span></div>
+          </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-num">Day 4</span>
+            <span class="day-title">전문가 Q&A · 미래 가치</span>
+            <span class="day-flag">💼</span>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">AM</div>
+            <div class="time-content"><b>현지 부동산 전문가 Q&A</b><br/><span style="font-size: 10.5px; color: var(--text-mute);">호텔 내 1:1 종합 상담 (구입·임대·세무)</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">점심</div>
+            <div class="time-content"><b>Di Mai</b> (랜드마크 81 Vincom 2층)<br/><span style="font-size: 10.5px; color: var(--text-mute);">고급 베트남 정식 · 평점 4.8/5</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">AREA</div>
+            <div class="time-content"><b>2군 타오디엔 & 안푸 → 9군</b></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">임장</div>
+            <div class="time-content">마스터리 (역세권) · 게이트웨이 (안푸)<br/>빈홈 그랜드파크 (9군 신도시)</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">디너</div>
+            <div class="time-content"><b>포세이돈 부페</b> (빈탄)<br/><span style="font-size: 10.5px; color: var(--text-mute);">Pearl Plaza · 시푸드 부페</span></div>
+          </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-num">Day 5</span>
+            <span class="day-title">귀국</span>
+          </div>
+          <div class="timeline-item">
+            <div class="time-label">AM</div>
+            <div class="time-content">롯데호텔 체크아웃 · 공항 샌딩 → 한국 도착</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 그룹 인원 -->
+      <div class="info-block">
+        <div class="info-block-title">GROUP · 그룹 인원</div>
+        <ul class="feature-list">
+          <li><b>4인 기준</b></li>
+        </ul>
+      </div>
+
+      <!-- 불포함 사항 -->
+      <div class="info-block">
+        <div class="info-block-title">EXCLUDED · 불포함 사항</div>
+        <ul class="feature-list exclude">
+          <li>비행기 (한국 ↔ 호치민)</li>
+          <li>매너 팁</li>
+          <li>주류 및 음료</li>
+        </ul>
+      </div>
+
+      <!-- 추가 안내 -->
+      <div class="info-block">
+        <div class="info-block-title">CONSULTING · 개별 상담</div>
+        <ul class="feature-list">
+          <li>관심 지역, 예산, 투자 목적 1:1 맞춤 상담</li>
+          <li>매물 정보 및 임장 일정 사전 협의</li>
+          <li>현지 부동산 전문가 직접 안내</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+       Daily 페이지
+       ============================================= -->
+  <div class="page" id="page-daily">
+    <div class="page-header-bar">
+      <button class="back-btn" onclick="goPage('home')">
+        <svg width="14" height="14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-back"/></svg>
+      </button>
+      <div class="page-title-mini">Daily</div>
+      <div style="width: 36px;"></div>
+    </div>
+
+    <div class="page-content">
+      <div class="page-intro">
+        <div class="eyebrow">NO. 04 — DAILY</div>
+        <h2>오늘의<br/>베트남.</h2>
+        <p id="todayDate">매일 업데이트되는 환율과 주요 도시 날씨 정보입니다.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>환율</h3>
+        <div class="info-row"><span class="from">🇰🇷 1,000원</span><span class="to">17,600 동</span></div>
+        <div class="info-row"><span class="from">🇰🇷 10,000원</span><span class="to">176,000 동</span></div>
+        <div class="info-row"><span class="from">🇻🇳 1,000,000 동</span><span class="to">56,800 원</span></div>
+      </div>
+
+      <div class="info-card">
+        <h3>주요 도시 날씨</h3>
+        <div class="weather-row">
+          <div><span class="city-name">호치민</span><span class="city-region">남부</span></div>
+          <div class="desc">구름 조금</div><div class="temp">34°</div>
+        </div>
+        <div class="weather-row">
+          <div><span class="city-name">하노이</span><span class="city-region">북부</span></div>
+          <div class="desc">대체로 맑음</div><div class="temp">25°</div>
+        </div>
+        <div class="weather-row">
+          <div><span class="city-name">다낭</span><span class="city-region">중부</span></div>
+          <div class="desc">구름 조금</div><div class="temp">26°</div>
+        </div>
+        <div class="weather-row">
+          <div><span class="city-name">나트랑</span><span class="city-region">남중부</span></div>
+          <div class="desc">대체로 맑음</div><div class="temp">29°</div>
+        </div>
+        <div class="weather-row">
+          <div><span class="city-name">달랏</span><span class="city-region">고원</span></div>
+          <div class="desc">맑음</div><div class="temp">22°</div>
+        </div>
+      </div>
+
+      <div style="font-size: 10.5px; color: var(--text-mute); text-align: center; padding: 16px 0; line-height: 1.8;">
+        ※ 본 정보는 참고용입니다.
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       Transit 페이지
+       ============================================= -->
+  <div class="page" id="page-transit">
+    <div class="page-header-bar">
+      <button class="back-btn" onclick="goPage('home')">
+        <svg width="14" height="14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-back"/></svg>
+      </button>
+      <div class="page-title-mini">Transit</div>
+      <div style="width: 36px;"></div>
+    </div>
+
+    <div class="page-content">
+      <div class="page-intro">
+        <div class="eyebrow">NO. 05 — AIRPORT TRANSIT</div>
+        <h2>공항 픽업<br/>& 샌딩.</h2>
+        <p>떤선녓 국제공항(SGN) ↔ 호치민 시내·근교.<br/>한국어 가능 기사 동행 안전 서비스.</p>
+      </div>
+
+      <!-- 메인 안내 카드 - 머스키 로즈 -->
+      <div class="package-head" style="background: linear-gradient(135deg, var(--card-transit) 0%, #966460 100%);">
+        <div class="pkg-eyebrow">PRICING INCLUDES</div>
+        <div class="pkg-title">픽업 안내판<br/>+ 픽업 서비스 + VAT</div>
+        <div class="pkg-meta">
+          <span class="meta-pill">SGN 공항</span>
+          <span class="meta-pill">한국어 기사</span>
+          <span class="meta-pill">안전 보장</span>
+        </div>
+      </div>
+
+      <!-- 차량 정보 -->
+      <div class="vehicle-info">
+        <div class="vehicle-info-row">
+          <div class="label">4~7인승</div>
+          <div class="value"><b>승용 / SUV</b> · 가족 단위, 소그룹</div>
+        </div>
+        <div class="vehicle-info-row">
+          <div class="label">16인승</div>
+          <div class="value"><b>미니밴</b> · 단체, 짐 많은 경우</div>
+        </div>
+      </div>
+
+      <!-- 가격표 -->
+      <div class="price-table">
+        <div class="section-label" style="margin-bottom: 4px; padding-left: 0;">SGN → 시내 (편도)</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--text-main); margin-bottom: 12px; padding-left: 0;">공항 픽업 요금</div>
+
+        <div class="price-table-header">
+          <div class="col-route">구간</div>
+          <div class="col-price">4~7인승</div>
+          <div class="col-price">16인승</div>
+        </div>
+
+        <div class="price-row">
+          <div class="route-name">1군 / 3군<br/>10군 (도심)</div>
+          <div class="price-cell">
+            <div class="price-krw">₩18,800</div>
+            <div class="price-vnd">330,000동</div>
+          </div>
+          <div class="price-cell">
+            <div class="price-krw">₩42,600</div>
+            <div class="price-vnd">750,000동</div>
+          </div>
+        </div>
+
+        <div class="price-row">
+          <div class="route-name">2군 / 7군<br/>8군</div>
+          <div class="price-cell">
+            <div class="price-krw">₩23,900</div>
+            <div class="price-vnd">420,000동</div>
+          </div>
+          <div class="price-cell">
+            <div class="price-krw">₩54,000</div>
+            <div class="price-vnd">950,000동</div>
+          </div>
+        </div>
+
+        <div class="price-row">
+          <div class="route-name">4군 / 5군<br/>빈탄군</div>
+          <div class="price-cell">
+            <div class="price-krw">₩19,900</div>
+            <div class="price-vnd">350,000동</div>
+          </div>
+          <div class="price-cell">
+            <div class="price-krw">₩42,600</div>
+            <div class="price-vnd">750,000동</div>
+          </div>
+        </div>
+
+        <div class="price-row">
+          <div class="route-name">푸년군 / 떤빈군</div>
+          <div class="price-cell">
+            <div class="price-krw">₩14,200</div>
+            <div class="price-vnd">250,000동</div>
+          </div>
+          <div class="price-cell">
+            <div class="price-krw">₩34,100</div>
+            <div class="price-vnd">600,000동</div>
+          </div>
+        </div>
+
+        <div class="price-row">
+          <div class="route-name">공항 인근 호텔</div>
+          <div class="price-cell">
+            <div class="price-krw">₩11,400</div>
+            <div class="price-vnd">200,000동</div>
+          </div>
+          <div class="price-cell">
+            <div class="price-krw">₩28,400</div>
+            <div class="price-vnd">500,000동</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 환산 안내 -->
+      <div class="exchange-note">
+        ※ <b>원화 환산</b>은 1,000원 ≈ 17,600동 기준 참고용<br/>
+        ※ <b>공항 인근 호텔</b>: 쯔엉선(Trường Sơn) · 홍하(Hồng Hà) · 박당(Bạch Đằng) · F2 · 떤빈(Tân Bình) 도로 일대
+      </div>
+
+      <!-- 추가 서비스 -->
+      <div class="info-block">
+        <div class="info-block-title">ADDITIONAL · 추가 서비스</div>
+        <ul class="feature-list">
+          <li>붕따우 등 근교 픽업 · 별도 문의</li>
+          <li>일일 차량 임차 (시내 또는 근교 이동)</li>
+          <li>월 단위 장기 차량 임차</li>
+          <li>VIP 전용 차량 (그룹 단위)</li>
+        </ul>
+      </div>
+
+      <!-- 안내 -->
+      <div class="info-block">
+        <div class="info-block-title">NOTICE</div>
+        <ul class="feature-list">
+          <li>예약은 카카오톡 채널로 받습니다</li>
+          <li>픽업 시 안내판 표시 + 한국어 기사</li>
+          <li>심야·새벽 도착도 가능</li>
+          <li>샌딩(공항 가는 편)도 동일 요금</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 카톡 버튼 -->
+  <div class="floating-cta">
+    <button class="cta-btn" onclick="openExternal(KAKAO_CHANNEL_URL)">
+      카카오톡으로 문의
+    </button>
+  </div>
+
+  <script>
+    const KAKAO_CHANNEL_URL = 'https://pf.kakao.com/_GYYlX';
+
+    function goPage(name) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('page-' + name);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        history.pushState({ page: name }, '', '#' + name);
+      }
+    }
+
+    function openExternal(url) {
+      if (url && url.indexOf('_REPLACE_ME') === -1) {
+        window.open(url, '_blank', 'noopener');
+      } else {
+        alert('연결 정보가 설정되지 않았습니다.\n관리자에게 문의해주세요.');
+      }
+    }
+
+    window.addEventListener('popstate', () => {
+      const hash = location.hash.replace('#', '') || 'home';
+      goPage(hash);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = location.hash.replace('#', '');
+      if (hash) goPage(hash);
+
+      const today = new Date();
+      const dateStr = today.getFullYear() + '. ' + (today.getMonth() + 1) + '. ' + today.getDate() + '.';
+      const el = document.getElementById('todayDate');
+      if (el) el.textContent = dateStr + ' 기준';
+    });
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(reg => console.log('[PWA v6] SW 등록:', reg.scope))
+          .catch(err => console.log('[PWA v6] SW 실패:', err));
+      });
+    }
+
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      document.getElementById('installBanner').classList.add('show');
+    });
+    document.getElementById('installBtn').addEventListener('click', async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      document.getElementById('installBanner').classList.remove('show');
+    });
+
+    function isIOS() { return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; }
+    function isStandalone() { return window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true; }
+    if (isIOS() && !isStandalone()) {
+      const seen = localStorage.getItem('iosInstallSeenV6');
+      if (!seen) {
+        setTimeout(() => {
+          const banner = document.getElementById('installBanner');
+          banner.querySelector('.text').innerHTML = '<b>홈 화면에 추가</b>하기<br/>공유 ⬆️ → 홈 화면에 추가';
+          banner.querySelector('#installBtn').style.display = 'none';
+          banner.classList.add('show');
+          localStorage.setItem('iosInstallSeenV6', '1');
+        }, 1500);
+      }
+    }
+
+    // ========================================
+    // GOOGLE MAPS — 골프 + 부동산 투어 동선 지도
+    // ========================================
+    const GMAPS_API_KEY = 'AIzaSyALa8SgDGPw9vvqN3Y57L5zkeMAkqnk7Yg';
+
+    // 카테고리별 핀 색상 (디자인 시스템과 통일)
+    const PIN_COLORS = {
+      airport: '#6c7980',  // 회색
+      golf:    '#8db89e',  // 세이지 (Golf 카드)
+      hotel:   '#6b9bb8',  // 슬레이트 블루 (Estate 카드)
+      dining:  '#c9a566',  // 브라스 (Daily 카드)
+      spa:     '#a8736e',  // 머스키 로즈 (Transit 카드)
+      cafe:    '#8a6f4d',  // 갈색
+      estate:  '#6b9bb8',  // 부동산 단지
+    };
+
+    // 카테고리별 이모지
+    const PIN_EMOJI = {
+      airport: '✈',
+      golf:    '⛳',
+      hotel:   '🏨',
+      dining:  '🍽',
+      spa:     '💆',
+      cafe:    '☕',
+      estate:  '🏢',
+    };
+
+    // ========================================
+    // 골프투어 데이터 (Day 1~5, 총 13개 핀)
+    // ========================================
+    const GOLF_PLACES = [
+      // Day 1
+      { day: 1, cat: 'airport', name: 'Tan Son Nhat Airport', kr: '떤손녓 국제공항 (도착)', lat: 10.8169828, lng: 106.6565808, rating: '3.6', info: 'Day 1 입국 · 픽업 차량으로 붕따우 이동 (약 2시간)', placeId: 'ChIJnZ-oGhEpdTER8ycbqsCc8Ng' },
+      { day: 1, cat: 'hotel', name: 'TRAN DUY VILLA C5', kr: '붕따우 풀빌라', lat: 10.3464709, lng: 107.0919870, rating: '4.8', info: 'Day 1~2 숙소 · Bãi Sau 해변가 풀빌라', placeId: 'ChIJTa_RbINvdTER8uMgXV2LH4c' },
+      // Day 2
+      { day: 2, cat: 'golf', name: 'Vung Tau Paradise Golf Course', kr: '붕따우 파라다이스 CC', lat: 10.3566089, lng: 107.1033526, rating: '4.0', info: 'Day 2 라운딩 · 18홀 · 바다 조망 시사이드 코스', placeId: 'ChIJl7ULXC5wdTERHYlkTMjGwJU' },
+      { day: 2, cat: 'spa', name: 'Rosemary Spa', kr: '로즈마리 스파 (붕따우)', lat: 10.3506119, lng: 107.0902917, rating: '4.8', info: 'Day 2 마사지 · 420 Lê Hồng Phong · Foot & Body', placeId: 'ChIJs3tyufJvdTERM1pYK99LDGo' },
+      { day: 2, cat: 'dining', name: 'Gành Hào Seafood', kr: '간하오 시푸드 (붕따우 페어웰)', lat: 10.3600349, lng: 107.0602722, rating: '4.3', info: 'Day 2 페어웰 디너 · 사이공베이 뷰 · 9,820명 평가', placeId: 'ChIJd2Bl8OtvdTER36d1MGpZkPM' },
+      // Day 3
+      { day: 3, cat: 'golf', name: 'Taekwang Jeongsan Country Club', kr: '태광 정산 CC (에메랄드)', lat: 10.7458484, lng: 106.8355538, rating: '4.2', info: 'Day 3 라운딩 · 18홀 · 한국 태광그룹 운영 · 동나이 강 섬', placeId: 'ChIJE9n7_psjdTER1FTWgTKvdWw' },
+      { day: 3, cat: 'hotel', name: 'Lancaster Lê Thánh Tôn', kr: '랭카스터 레탄톤 (호치민)', lat: 10.7807819, lng: 106.7045294, rating: '3.7', info: 'Day 3~5 숙소 · 22 Lê Thánh Tôn · 1군 일본인 거리', placeId: 'ChIJs8UNn-8vdTERMlA-LZ_WOsc' },
+      { day: 3, cat: 'dining', name: 'Ngon Restaurant', kr: '나향응온 (베트남 정식)', lat: 10.7774810, lng: 106.6993877, rating: '4.0', info: 'Day 3 디너 · 160 Pasteur · 11,203명 평가', placeId: 'ChIJoz2M2EgvdTERLFRcCOtuC70' },
+      // Day 4
+      { day: 4, cat: 'golf', name: 'Vietnam Golf & Country Club', kr: '베트남 CC (투득)', lat: 10.8569503, lng: 106.8243011, rating: '4.3', info: 'Day 4 라운딩 · 18홀 · 호텔에서 차로 30분', placeId: 'ChIJcaJiY3MhdTER50tIYOPQ0iM' },
+      { day: 4, cat: 'spa', name: 'Saigon Dep Spa', kr: '사이공 뎁 스파 (타오디엔)', lat: 10.8038481, lng: 106.7345813, rating: '4.7', info: 'Day 4 마사지 · 79 Xuân Thủy · 2군 타오디엔', placeId: 'ChIJdx5A-hkmdTER5OBbcM9LaeA' },
+      { day: 4, cat: 'dining', name: 'Saigon Marina IFC', kr: '포세이돈 @ 사이공 마리나 IFC', lat: 10.7822682, lng: 106.7077760, rating: '3.8', info: 'Day 4 디너 · 사이공강변 55층 랜드마크', placeId: 'ChIJXWGJBGIvdTER3aZvH4bAG64' },
+      // Day 5
+      { day: 5, cat: 'golf', name: 'Tan Son Nhat Golf Course', kr: '떤손녓 골프장', lat: 10.8299875, lng: 106.6499214, rating: '4.3', info: 'Day 5 라운딩 · 18홀 · 공항 옆 36홀 코스 · 5,005명 평가', placeId: 'ChIJ9b06iXQpdTERC1mZNMEFFB8' },
+      { day: 5, cat: 'dining', name: 'Cơm Niêu Việt Nam', kr: '꼼니에우 (페어웰 디너)', lat: 10.8019967, lng: 106.6500415, rating: '4.4', info: 'Day 5 페어웰 디너 · 234 Cộng Hòa · 베트남 솥밥', placeId: 'ChIJxS9sY0gpdTERT3o_Ju4IjzU' },
+      { day: 5, cat: 'cafe', name: 'Mien Dong Thao Coffee', kr: '미엔동타오 카페', lat: 10.7975395, lng: 106.6751783, rating: '4.2', info: 'Day 5 카페 · 221A Nguyễn Trọng Tuyển · 정원형 클래식', placeId: 'ChIJfxNZwSkpdTERfHMOehO61JQ' },
+    ];
+
+    // 골프투어 동선 (Day별 좌표 순서)
+    const GOLF_ROUTE_ORDER = [
+      // Day 1: 공항 → 호텔
+      { lat: 10.8169828, lng: 106.6565808 },
+      { lat: 10.3464709, lng: 107.0919870 },
+      // Day 2: 호텔 → 골프 → 스파 → 디너
+      { lat: 10.3566089, lng: 107.1033526 },
+      { lat: 10.3506119, lng: 107.0902917 },
+      { lat: 10.3600349, lng: 107.0602722 },
+      // Day 3: 골프 → 호텔 → 디너
+      { lat: 10.7458484, lng: 106.8355538 },
+      { lat: 10.7807819, lng: 106.7045294 },
+      { lat: 10.7774810, lng: 106.6993877 },
+      // Day 4: 골프 → 스파 → 디너
+      { lat: 10.8569503, lng: 106.8243011 },
+      { lat: 10.8038481, lng: 106.7345813 },
+      { lat: 10.7822682, lng: 106.7077760 },
+      // Day 5: 골프 → 카페 → 디너 → 공항
+      { lat: 10.8299875, lng: 106.6499214 },
+      { lat: 10.7975395, lng: 106.6751783 },
+      { lat: 10.8019967, lng: 106.6500415 },
+      { lat: 10.8169828, lng: 106.6565808 },
+    ];
+
+    // ========================================
+    // 부동산투어 데이터 (Day 1~5, 17개 핀)
+    // ========================================
+    const ESTATE_PLACES = [
+      // Day 1
+      { day: 1, cat: 'airport', name: 'Tan Son Nhat Airport', kr: '떤손녓 국제공항', lat: 10.8169828, lng: 106.6565808, rating: '3.6', info: 'Day 1 입국 · 롯데호텔로 이동', placeId: 'ChIJnZ-oGhEpdTER8ycbqsCc8Ng' },
+      { day: 1, cat: 'hotel', name: 'Lotte Hotel Saigon', kr: '롯데호텔 사이공', lat: 10.7786426, lng: 106.7067745, rating: '4.6', info: 'Day 1~5 베이스 호텔 · 2A-4A Tôn Đức Thắng · 6,218명 평가', placeId: 'ChIJq6tuBUQvdTERPrUo2ili-N4' },
+      // Day 2 (신흥 부촌)
+      { day: 2, cat: 'estate', name: 'Landmark 81 / Vinhomes Central Park', kr: '랜드마크 81 / 빈홈 센트럴파크', lat: 10.7951119, lng: 106.7220960, rating: '4.6', info: 'Day 2 임장 · 빈탄군 · 베트남 최고층 · 22,586명 평가', placeId: 'ChIJEQnz-MIndTERzRrJ-HNQrDY' },
+      { day: 2, cat: 'estate', name: 'Metropole Thủ Thiêm', kr: '메트로폴 투티엠', lat: 10.7789989, lng: 106.7132988, rating: '4.1', info: 'Day 2 임장 · 투티엠 신도시 핵심 개발지', placeId: 'ChIJP6lmTAAvdTERjKJOgsPZ4-c' },
+      { day: 2, cat: 'estate', name: 'Grand Marina Saigon', kr: '그랜드 마리나 사이공', lat: 10.7861174, lng: 106.7101055, rating: '4.3', info: 'Day 2 임장 · 1군 사이공강변 · 마리아트 브랜드 레지던스', placeId: 'ChIJV8p0mkzZdDER8TtGzeM9MBE' },
+      { day: 2, cat: 'spa', name: 'Mandarin Spa & Massage', kr: '만다린 스파 (타오디엔)', lat: 10.8028335, lng: 106.7381107, rating: '4.4', info: 'Day 2 마사지 · 12 Thảo Điền · 한국식 사우나 보유', placeId: 'ChIJeyoSO9kvdTERFPvUpW06vIA' },
+      { day: 2, cat: 'dining', name: 'Ngon Restaurant', kr: '나향응온', lat: 10.7774810, lng: 106.6993877, rating: '4.0', info: 'Day 2 디너 · 160 Pasteur · 베트남 전통 정식', placeId: 'ChIJoz2M2EgvdTERLFRcCOtuC70' },
+      // Day 3 (전통 강자 - 7군 푸미흥)
+      { day: 3, cat: 'estate', name: 'Scenic Valley', kr: '시닉 밸리 (푸미흥)', lat: 10.7313306, lng: 106.7182185, rating: '4.0', info: 'Day 3 임장 · 7군 푸미흥 · 한국인 거주 인기', placeId: 'ChIJ__I60IgvdTER32OVG9AiSL4' },
+      { day: 3, cat: 'dining', name: 'AN Vegetarian (220 Phạm Thái Bường)', kr: 'AN 채식식당', lat: 10.7275792, lng: 106.7124718, rating: '4.5', info: 'Day 3 점심 · 220 Phạm Thái Bường · 정원형 채식 식당', placeId: 'ChIJRTo9IhsvdTER835Z0g1dO58' },
+      { day: 3, cat: 'spa', name: 'N Spa - Massage Body Q7', kr: 'N 스파 (푸미흥)', lat: 10.7264961, lng: 106.7061355, rating: '4.7', info: 'Day 3 마사지 · 198 Hà Huy Tập · 1,176명 평가', placeId: 'ChIJzeB3xSkvdTERUL3XUBbZg0g' },
+      { day: 3, cat: 'estate', name: 'Midtown M7', kr: '미드타운 M7 (푸미흥)', lat: 10.7238297, lng: 106.7285203, rating: '4.6', info: 'Day 3 임장 · 7군 프리미엄 단지 · 사쿠라 공원 인근', placeId: 'ChIJcbbKgC8ldTEROnbqLix66JA' },
+      { day: 3, cat: 'dining', name: '맛찬들 푸미흥 (Matchandeul BBQ)', kr: '맛찬들 한식 BBQ', lat: 10.7318120, lng: 106.7083296, rating: '4.5', info: 'Day 3 디너 · 49 Cao Triều Phát · 한인타운 한식 고정', placeId: 'ChIJkX25_pAvdTERh88UDCvzzcM' },
+      // Day 4 (미래 가치)
+      { day: 4, cat: 'dining', name: 'Di Mai @ Vincom Landmark 81', kr: 'Di Mai (랜드마크 2층)', lat: 10.7936931, lng: 106.7221373, rating: '4.8', info: 'Day 4 점심 · Vincom Center 2F · 고급 베트남 정식', placeId: 'ChIJeegDcLopdTERf6QAur07dc4' },
+      { day: 4, cat: 'estate', name: 'Masteri Thảo Điền', kr: '마스터리 타오디엔', lat: 10.8020076, lng: 106.7395769, rating: '3.3', info: 'Day 4 임장 · 2군 타오디엔 · 메트로 1호선 역세권', placeId: 'ChIJHXZJypUndTERFjuXcwGZgmQ' },
+      { day: 4, cat: 'estate', name: 'Gateway Thảo Điền', kr: '게이트웨이 타오디엔', lat: 10.8037689, lng: 106.7462258, rating: '4.6', info: 'Day 4 임장 · 안푸 · 외국인 수요 높은 프리미엄 단지', placeId: 'ChIJy-4uBl4ndTERZFrD6N2NvB0' },
+      { day: 4, cat: 'estate', name: 'Vinhomes Grand Park (9군)', kr: '빈홈 그랜드 파크', lat: 10.8406084, lng: 106.8377390, rating: '4.4', info: 'Day 4 임장 · 9군 신도시 · 대규모 복합단지', placeId: 'ChIJcU3NuY4hdTERNjkZWsWbdvI' },
+      { day: 4, cat: 'dining', name: 'Buffet Poseidon Bình Thạnh', kr: '포세이돈 부페 (빈탄)', lat: 10.7998147, lng: 106.7186772, rating: '4.4', info: 'Day 4 디너 · Pearl Plaza 4F · 시푸드 부페', placeId: 'ChIJ98imr54pdTERBbj6PwkjjcE' },
+    ];
+
+    // ========================================
+    // 지도 인스턴스 + InfoWindow 관리
+    // ========================================
+    let golfMap = null, estateMap = null;
+    let golfMarkers = [], estateMarkers = [];
+    let golfRoute = null, estateRoute = null;
+    let activeInfoWindow = null;
+
+    // SVG 핀 아이콘 생성
+    function makePinIcon(category) {
+      const color = PIN_COLORS[category];
+      const emoji = PIN_EMOJI[category];
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="52" viewBox="0 0 40 52">
+          <path d="M 20 2 C 9.5 2 2 9.5 2 20 C 2 32 20 50 20 50 C 20 50 38 32 38 20 C 38 9.5 30.5 2 20 2 Z"
+                fill="${color}" stroke="#fff" stroke-width="2"/>
+          <circle cx="20" cy="20" r="13" fill="#fff" opacity="0.95"/>
+          <text x="20" y="26" text-anchor="middle" font-size="16" font-family="Apple Color Emoji, Segoe UI Emoji, sans-serif">${emoji}</text>
+        </svg>`;
+      return {
+        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg),
+        scaledSize: new google.maps.Size(40, 52),
+        anchor: new google.maps.Point(20, 50),
+      };
+    }
+
+    // 인포윈도우 HTML
+    function makeInfoContent(p) {
+      const stars = p.rating ? '⭐ ' + p.rating + ' / 5' : '';
+      const mapsLink = p.placeId
+        ? `https://www.google.com/maps/place/?q=place_id:${p.placeId}`
+        : `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}`;
+      return `
+        <div class="iw-content">
+          <div class="iw-name">${p.name}</div>
+          <div class="iw-name-kr">${p.kr}</div>
+          ${stars ? `<div class="iw-rating">${stars}</div>` : ''}
+          <div class="iw-info">${p.info}</div>
+          <a class="iw-link" href="${mapsLink}" target="_blank" rel="noopener">구글 지도에서 열기 →</a>
+        </div>`;
+    }
+
+    // 지도 초기화 공통 함수
+    function buildMap(containerId, places, routeOrder, mapInstance, markersArr, routeRef, defaultCenter, defaultZoom) {
+      const container = document.getElementById(containerId);
+      if (!container) return null;
+
+      const map = new google.maps.Map(container, {
+        center: defaultCenter,
+        zoom: defaultZoom,
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: true,
+        zoomControl: true,
+        styles: [
+          { featureType: 'poi.business', stylers: [{ visibility: 'off' }] },
+          { featureType: 'transit', stylers: [{ visibility: 'simplified' }] },
+        ],
+      });
+
+      // 마커 생성
+      const markers = places.map(p => {
+        const marker = new google.maps.Marker({
+          position: { lat: p.lat, lng: p.lng },
+          map: map,
+          icon: makePinIcon(p.cat),
+          title: p.kr,
+        });
+        const iw = new google.maps.InfoWindow({ content: makeInfoContent(p) });
+        marker.addListener('click', () => {
+          if (activeInfoWindow) activeInfoWindow.close();
+          iw.open({ anchor: marker, map: map });
+          activeInfoWindow = iw;
+        });
+        marker._day = p.day;
+        return marker;
+      });
+
+      // 동선 라인
+      const routeLine = new google.maps.Polyline({
+        path: routeOrder,
+        geodesic: true,
+        strokeColor: '#4a8a99',
+        strokeOpacity: 0.6,
+        strokeWeight: 2,
+        icons: [{
+          icon: { path: 'M 0,-1 0,1', strokeOpacity: 1, scale: 3 },
+          offset: '0',
+          repeat: '12px'
+        }],
+        map: map,
+      });
+
+      // 모든 핀이 보이도록 자동 줌
+      const bounds = new google.maps.LatLngBounds();
+      places.forEach(p => bounds.extend({ lat: p.lat, lng: p.lng }));
+      map.fitBounds(bounds, 40);
+
+      return { map, markers, routeLine };
+    }
+
+    // Day 토글 처리
+    function setupDayToggle(toggleId, markers, routeLine, allRouteOrder, places) {
+      const toggle = document.getElementById(toggleId);
+      if (!toggle) return;
+      toggle.querySelectorAll('.day-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          toggle.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const day = btn.dataset.day;
+          if (activeInfoWindow) activeInfoWindow.close();
+
+          if (day === 'all') {
+            markers.forEach(m => m.setMap(m.getMap() || null) || m.setVisible(true));
+            markers.forEach(m => m.setVisible(true));
+            routeLine.setPath(allRouteOrder);
+            routeLine.setVisible(true);
+          } else {
+            const dayNum = parseInt(day);
+            markers.forEach(m => m.setVisible(m._day === dayNum));
+            // Day별 동선
+            const dayPath = places.filter(p => p.day === dayNum).map(p => ({ lat: p.lat, lng: p.lng }));
+            routeLine.setPath(dayPath);
+            routeLine.setVisible(dayPath.length > 1);
+          }
+        });
+      });
+    }
+
+    // 골프 + 부동산 지도 모두 초기화
+    function initMaps() {
+      // 골프투어 지도
+      if (document.getElementById('golf-map')) {
+        const result = buildMap(
+          'golf-map',
+          GOLF_PLACES,
+          GOLF_ROUTE_ORDER,
+          null, null, null,
+          { lat: 10.6, lng: 106.85 },
+          10
+        );
+        if (result) {
+          golfMap = result.map;
+          golfMarkers = result.markers;
+          golfRoute = result.routeLine;
+          setupDayToggle('golfDayToggle', golfMarkers, golfRoute, GOLF_ROUTE_ORDER, GOLF_PLACES);
+        }
+      }
+
+      // 부동산투어 지도 (있을 때만)
+      if (document.getElementById('estate-map')) {
+        // 부동산은 한 권역씩 도는 형태라 단순 순서로 동선 생성
+        const ESTATE_ROUTE_ORDER = ESTATE_PLACES.map(p => ({ lat: p.lat, lng: p.lng }));
+        const result = buildMap(
+          'estate-map',
+          ESTATE_PLACES,
+          ESTATE_ROUTE_ORDER,
+          null, null, null,
+          { lat: 10.78, lng: 106.73 },
+          12
+        );
+        if (result) {
+          estateMap = result.map;
+          estateMarkers = result.markers;
+          estateRoute = result.routeLine;
+          setupDayToggle('estateDayToggle', estateMarkers, estateRoute, ESTATE_ROUTE_ORDER, ESTATE_PLACES);
+        }
+      }
+
+      console.log('[PWA v6] Google Maps 초기화 완료');
+    }
+
+    // 골프/부동산 페이지에 진입할 때만 지도 로드 (성능 최적화)
+    let mapsLoaded = false;
+    function loadGoogleMapsAPI() {
+      if (mapsLoaded) {
+        if (window.google && window.google.maps) initMaps();
+        return;
+      }
+      mapsLoaded = true;
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${GMAPS_API_KEY}&callback=initMaps&loading=async&v=quarterly`;
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+      window.initMaps = initMaps;
+    }
+
+    // 골프/부동산 페이지 클릭 시 지도 로드
+    const _originalGoPage = goPage;
+    goPage = function(name) {
+      _originalGoPage(name);
+      if (name === 'golf' || name === 'estate') {
+        setTimeout(loadGoogleMapsAPI, 200);
+      }
+    };
+
+    // URL 직접 접근 시도 (#golf 등)
+    if (location.hash === '#golf' || location.hash === '#estate') {
+      setTimeout(loadGoogleMapsAPI, 500);
+    }
+  </script>
+</body>
+</html>
