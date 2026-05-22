@@ -1483,33 +1483,18 @@
       </div>
 
       <div class="info-card">
-        <h3>환율</h3>
-        <div class="info-row"><span class="from">🇰🇷 1,000원</span><span class="to">17,600 동</span></div>
-        <div class="info-row"><span class="from">🇰🇷 10,000원</span><span class="to">176,000 동</span></div>
-        <div class="info-row"><span class="from">🇻🇳 1,000,000 동</span><span class="to">56,800 원</span></div>
+        <h3>환율 <span id="exchangeBadge" style="font-size: 11px; color: var(--text-mute); font-weight: 400; margin-left: 6px;"></span></h3>
+        <div id="exchangeContainer">
+          <div class="info-row"><span class="from">🇰🇷 1,000원</span><span class="to" id="ex1">로딩 중...</span></div>
+          <div class="info-row"><span class="from">🇰🇷 10,000원</span><span class="to" id="ex2">로딩 중...</span></div>
+          <div class="info-row"><span class="from">🇻🇳 1,000,000 동</span><span class="to" id="ex3">로딩 중...</span></div>
+        </div>
       </div>
 
       <div class="info-card">
         <h3>주요 도시 날씨</h3>
-        <div class="weather-row">
-          <div><span class="city-name">호치민</span><span class="city-region">남부</span></div>
-          <div class="desc">구름 조금</div><div class="temp">34°</div>
-        </div>
-        <div class="weather-row">
-          <div><span class="city-name">하노이</span><span class="city-region">북부</span></div>
-          <div class="desc">대체로 맑음</div><div class="temp">25°</div>
-        </div>
-        <div class="weather-row">
-          <div><span class="city-name">다낭</span><span class="city-region">중부</span></div>
-          <div class="desc">구름 조금</div><div class="temp">26°</div>
-        </div>
-        <div class="weather-row">
-          <div><span class="city-name">나트랑</span><span class="city-region">남중부</span></div>
-          <div class="desc">대체로 맑음</div><div class="temp">29°</div>
-        </div>
-        <div class="weather-row">
-          <div><span class="city-name">달랏</span><span class="city-region">고원</span></div>
-          <div class="desc">맑음</div><div class="temp">22°</div>
+        <div id="weatherContainer">
+          <div class="weather-row" style="color: var(--text-mute); justify-content: center;">데이터 로딩 중...</div>
         </div>
       </div>
 
@@ -1742,6 +1727,68 @@
         }, 1500);
       }
     }
+
+    // ========================================
+    // DAILY DATA — data.json에서 환율/날씨 로드
+    // ========================================
+    async function loadDailyData() {
+      try {
+        // 캐시 방지를 위해 timestamp 추가
+        const response = await fetch('data.json?t=' + Date.now());
+        if (!response.ok) throw new Error('data.json 로드 실패');
+        const data = await response.json();
+
+        // 환율 채우기
+        if (data.exchange) {
+          const ex1 = document.getElementById('ex1');
+          const ex2 = document.getElementById('ex2');
+          const ex3 = document.getElementById('ex3');
+          if (ex1) ex1.textContent = data.exchange.krw1000_to_vnd + ' 동';
+          if (ex2) ex2.textContent = data.exchange.krw10000_to_vnd + ' 동';
+          if (ex3) ex3.textContent = data.exchange.vnd1m_to_krw + ' 원';
+        }
+
+        // 업데이트 날짜 표시
+        if (data.lastUpdated) {
+          const badge = document.getElementById('exchangeBadge');
+          if (badge) badge.textContent = '· ' + data.lastUpdated + ' 기준';
+        }
+
+        // 날씨 채우기
+        if (data.weather && Array.isArray(data.weather)) {
+          const container = document.getElementById('weatherContainer');
+          if (container) {
+            container.innerHTML = data.weather.map(w => `
+              <div class="weather-row">
+                <div><span class="city-name">${w.city}</span><span class="city-region">${w.region}</span></div>
+                <div class="desc">${w.desc}</div><div class="temp">${w.temp}°</div>
+              </div>
+            `).join('');
+          }
+        }
+
+        console.log('[PWA v6] data.json 로드 완료:', data.lastUpdated);
+      } catch (err) {
+        console.error('[PWA v6] data.json 로드 실패:', err);
+        // 실패 시 폴백 메시지
+        const container = document.getElementById('weatherContainer');
+        if (container) {
+          container.innerHTML = '<div class="weather-row" style="color: var(--text-mute); justify-content: center;">데이터를 불러올 수 없습니다.</div>';
+        }
+      }
+    }
+
+    // 페이지 로드 시 즉시 실행
+    loadDailyData();
+
+    // Daily 페이지 진입 시에도 새로고침 (최신 데이터 보장)
+    const _origGoPage_daily = goPage;
+    goPage = function(name) {
+      _origGoPage_daily(name);
+      if (name === 'daily') {
+        loadDailyData();
+      }
+    };
 
     // ========================================
     // GOOGLE MAPS — 골프 + 부동산 투어 동선 지도

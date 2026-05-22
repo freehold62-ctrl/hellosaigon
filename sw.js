@@ -1,5 +1,5 @@
-// hello saigon PWA Service Worker - v6 (Maps Edition)
-const CACHE_NAME = 'hellosaigon-v6';
+// hello saigon PWA Service Worker - v7 (Live Data Edition)
+const CACHE_NAME = 'hellosaigon-v7';
 const FILES_TO_CACHE = [
   './',
   './index.html',
@@ -43,9 +43,10 @@ self.addEventListener('fetch', (event) => {
     url.includes('googleapis.com') ||
     url.includes('gstatic.com') ||
     url.includes('google.com/maps') ||
-    url.includes('googleusercontent.com')
+    url.includes('googleusercontent.com') ||
+    url.includes('data.json')
   ) {
-    return; // 브라우저 기본 처리에 맡김
+    return; // 브라우저 기본 처리에 맡김 (항상 최신 데이터)
   }
 
   event.respondWith(
