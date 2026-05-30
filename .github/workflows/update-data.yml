@@ -1,0 +1,24 @@
+ name: 날씨·환율 자동 업데이트
+
+  on:
+    schedule:
+      - cron: '0 1 * * *'
+    workflow_dispatch:
+
+  jobs:
+    update:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write
+      steps:
+        - uses: actions/checkout@v4
+        - name: 날씨·환율 데이터 업데이트
+          run: python3 update_data.py
+        - name: GitHub에 커밋
+          run: |
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data.json
+            git diff --staged --quiet || git commit -m "📊 자동 업데이트: $(date '+%Y-%m-%d')"
+            git push
+
