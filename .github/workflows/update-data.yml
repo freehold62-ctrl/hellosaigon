@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: 날씨환율 데이터 업데이트
-        run: python3 updata_data.py
+        run: python3 update_data.py
       - name: GitHub에 커밋
         run: |
           git config user.name "github-actions[bot]"
