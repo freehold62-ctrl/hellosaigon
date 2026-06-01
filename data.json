@@ -4,43 +4,43 @@
   "_comment_3": "  매일 아침 이 파일만 수정하면 됩니다.",
   "_comment_4": "  GitHub에서 ✏️ 연필 버튼 클릭 → 숫자만 수정 → Commit",
   "_comment_5": "==============================================",
-  "lastUpdated": "2026-05-31",
+  "lastUpdated": "2026-06-01",
   "exchange": {
     "_comment": "환율 정보 - 따옴표 안의 숫자만 수정하세요",
-    "krw1000_to_vnd": "17,450",
-    "krw10000_to_vnd": "174,499",
-    "vnd1m_to_krw": "57,307"
+    "krw1000_to_vnd": "17,377",
+    "krw10000_to_vnd": "173,773",
+    "vnd1m_to_krw": "57,546"
   },
   "weather": [
     {
       "city": "호치민",
       "region": "남부",
       "desc": "흐림",
-      "temp": "28"
+      "temp": "26"
     },
     {
       "city": "하노이",
       "region": "북부",
       "desc": "뇌우",
-      "temp": "32"
+      "temp": "28"
     },
     {
       "city": "다낭",
       "region": "중부",
-      "desc": "맑음",
-      "temp": "32"
+      "desc": "대체로 맑음",
+      "temp": "28"
     },
     {
       "city": "나트랑",
       "region": "남중부",
-      "desc": "소나기",
-      "temp": "25"
+      "desc": "이슬비",
+      "temp": "26"
     },
     {
       "city": "달랏",
       "region": "고원",
-      "desc": "비",
-      "temp": "19"
+      "desc": "이슬비",
+      "temp": "17"
     }
   ]
 }
