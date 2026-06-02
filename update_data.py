@@ -20,9 +20,18 @@ WMO = {
     95: "뇌우", 96: "뇌우·우박", 99: "뇌우·우박",
 }
 
-def fetch(url):
-    with urllib.request.urlopen(url, timeout=10) as r:
-        return json.loads(r.read())
+def fetch(url, retries=3, delay=10):
+      import time
+      for i in range(retries):
+          try:
+              with urllib.request.urlopen(url, timeout=15) as r:
+                  return json.loads(r.read())
+          except Exception as e:
+              if i < retries - 1:
+                  print(f"  [재시도 {i+1}/{retries-1}] {e}")
+                  time.sleep(delay)
+              else:
+                  raise
 
 def get_weather(lat, lon):
     url = (
