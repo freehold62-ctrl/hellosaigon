@@ -827,6 +827,199 @@
       .menu-name { font-size: 15px; }
       .package-head .pkg-title { font-size: 19px; }
     }
+
+    /* ============================================
+       날씨 & 환율 대시보드
+       ============================================ */
+    .weather-section {
+        margin-bottom: 14px;
+    }
+
+    .weather-header {
+        padding: 0 22px 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .weather-header .header-label {
+        font-family: 'Inter', sans-serif;
+        font-size: 10px;
+        letter-spacing: 2.5px;
+        color: var(--accent);
+        text-transform: uppercase;
+    }
+
+    .weather-header .header-title {
+        font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+        font-weight: 500;
+        font-size: 18px;
+        color: var(--text-main);
+        letter-spacing: -0.3px;
+    }
+
+    .weather-header .update-time {
+        margin-left: auto;
+        font-family: 'Inter', sans-serif;
+        font-size: 9px;
+        color: var(--text-mute);
+        letter-spacing: 0.5px;
+    }
+
+    /* 날씨 카드 그리드 */
+    .weather-grid {
+        padding: 0 16px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 14px;
+    }
+
+    .weather-card {
+        background: var(--surface);
+        border-radius: 16px;
+        padding: 16px;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 2px solid transparent;
+    }
+
+    .weather-card:active {
+        transform: scale(0.97);
+    }
+
+    /* 도시별 색상 */
+    .weather-card.saigon { border-color: #d9825f; background: linear-gradient(135deg, rgba(217,130,95,0.08) 0%, rgba(217,130,95,0.02) 100%); }
+    .weather-card.hanoi { border-color: #5b8fc7; background: linear-gradient(135deg, rgba(91,143,199,0.08) 0%, rgba(91,143,199,0.02) 100%); }
+    .weather-card.danang { border-color: #f4a460; background: linear-gradient(135deg, rgba(244,164,96,0.08) 0%, rgba(244,164,96,0.02) 100%); }
+    .weather-card.nhatrang { border-color: #7fb3d5; background: linear-gradient(135deg, rgba(127,179,213,0.08) 0%, rgba(127,179,213,0.02) 100%); }
+    .weather-card.dalat { border-color: #9ec04c; background: linear-gradient(135deg, rgba(158,192,76,0.08) 0%, rgba(158,192,76,0.02) 100%); }
+
+    .weather-card-city {
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--text-main);
+        margin-bottom: 6px;
+    }
+
+    .weather-card-region {
+        font-family: 'Inter', sans-serif;
+        font-size: 9px;
+        color: var(--text-mute);
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    .weather-card-temps {
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+        margin-bottom: 8px;
+    }
+
+    .weather-card-high {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--text-main);
+    }
+
+    .weather-card-slash {
+        color: var(--text-mute);
+        font-size: 14px;
+    }
+
+    .weather-card-low {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--text-soft);
+    }
+
+    .weather-card-desc {
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 11px;
+        color: var(--text-soft);
+    }
+
+    /* 환율 섹션 */
+    .exchange-section {
+        padding: 0 16px;
+        background: var(--surface);
+        border-radius: 16px;
+        padding: 18px;
+        margin-bottom: 14px;
+    }
+
+    .exchange-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+    }
+
+    .exchange-label {
+        font-family: 'Inter', sans-serif;
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: var(--accent);
+        text-transform: uppercase;
+    }
+
+    .exchange-rate-primary {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+
+    .exchange-rate-primary .label {
+        font-family: 'Inter', sans-serif;
+        font-size: 10px;
+        color: var(--text-mute);
+        letter-spacing: 0.5px;
+    }
+
+    .exchange-rate-primary .value {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--accent);
+    }
+
+    .exchange-rate-secondary {
+        display: flex;
+        gap: 12px;
+        font-size: 11px;
+    }
+
+    .exchange-rate-secondary .item {
+        flex: 1;
+    }
+
+    .exchange-rate-secondary .label {
+        color: var(--text-mute);
+        display: block;
+        margin-bottom: 2px;
+    }
+
+    .exchange-rate-secondary .value {
+        color: var(--text-main);
+        font-weight: 500;
+        font-family: 'Cormorant Garamond', serif;
+    }
+
+    .exchange-note {
+        font-size: 9px;
+        color: var(--text-mute);
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top: 1px solid var(--line);
+    }
+
   </style>
 </head>
 <body>
@@ -950,6 +1143,104 @@
     </div>
 
     <div class="page-content">
+    <!-- ============================================
+         날씨 & 환율 섹션 (오늘의 베트남)
+         ============================================ -->
+    <div class="weather-section">
+        <div class="weather-header">
+            <span class="header-label">☀️ 오늘의 베트남</span>
+            <span class="header-title">날씨 & 환율</span>
+            <span class="update-time" id="updateTime">업데이트 중...</span>
+        </div>
+
+        <!-- 날씨 그리드 -->
+        <div class="weather-grid" id="weatherGrid">
+            <div class="weather-card saigon">
+                <div class="weather-card-city">호치민</div>
+                <div class="weather-card-region">남부</div>
+                <div class="weather-card-temps">
+                    <span class="weather-card-high" id="saigon-high">--</span>
+                    <span class="weather-card-slash">/</span>
+                    <span class="weather-card-low" id="saigon-low">--</span>
+                </div>
+                <div class="weather-card-desc" id="saigon-desc">-</div>
+            </div>
+
+            <div class="weather-card hanoi">
+                <div class="weather-card-city">하노이</div>
+                <div class="weather-card-region">북부</div>
+                <div class="weather-card-temps">
+                    <span class="weather-card-high" id="hanoi-high">--</span>
+                    <span class="weather-card-slash">/</span>
+                    <span class="weather-card-low" id="hanoi-low">--</span>
+                </div>
+                <div class="weather-card-desc" id="hanoi-desc">-</div>
+            </div>
+
+            <div class="weather-card danang">
+                <div class="weather-card-city">다낭</div>
+                <div class="weather-card-region">중부</div>
+                <div class="weather-card-temps">
+                    <span class="weather-card-high" id="danang-high">--</span>
+                    <span class="weather-card-slash">/</span>
+                    <span class="weather-card-low" id="danang-low">--</span>
+                </div>
+                <div class="weather-card-desc" id="danang-desc">-</div>
+            </div>
+
+            <div class="weather-card nhatrang">
+                <div class="weather-card-city">나트랑</div>
+                <div class="weather-card-region">남중부</div>
+                <div class="weather-card-temps">
+                    <span class="weather-card-high" id="nhatrang-high">--</span>
+                    <span class="weather-card-slash">/</span>
+                    <span class="weather-card-low" id="nhatrang-low">--</span>
+                </div>
+                <div class="weather-card-desc" id="nhatrang-desc">-</div>
+            </div>
+
+            <div class="weather-card dalat" style="grid-column: span 2;">
+                <div class="weather-card-city">달랏</div>
+                <div class="weather-card-region">고원</div>
+                <div class="weather-card-temps">
+                    <span class="weather-card-high" id="dalat-high">--</span>
+                    <span class="weather-card-slash">/</span>
+                    <span class="weather-card-low" id="dalat-low">--</span>
+                </div>
+                <div class="weather-card-desc" id="dalat-desc">-</div>
+            </div>
+        </div>
+
+        <!-- 환율 섹션 -->
+        <div class="exchange-section">
+            <div class="exchange-header">
+                <span class="exchange-label">💱 KRW → VND</span>
+            </div>
+
+            <div class="exchange-rate-primary">
+                <span class="label">1,000원</span>
+                <span class="value" id="krw1000">--</span>
+                <span class="label" style="margin-left: 8px;">VND</span>
+            </div>
+
+            <div class="exchange-rate-secondary">
+                <div class="item">
+                    <span class="label">10,000원</span>
+                    <span class="value" id="krw10000">--</span>
+                </div>
+                <div class="item">
+                    <span class="label">1,000,000동</span>
+                    <span class="value" id="vnd1m">--</span>
+                </div>
+            </div>
+
+            <div class="exchange-note" id="exchangeNote">
+                마지막 업데이트: --
+            </div>
+        </div>
+    </div>
+
+    
       <div class="page-intro">
         <div class="eyebrow">NO. 02 — GOLF TOUR</div>
         <h2>호치민 + 붕따우<br/>4박 6일 골프투어</h2>
@@ -2095,5 +2386,65 @@
       setTimeout(loadGoogleMapsAPI, 500);
     }
   </script>
+
+    <!-- 날씨 & 환율 데이터 로드 -->
+    <script>
+    async function loadWeatherAndExchange() {
+        try {
+            // data.json 로드
+            const response = await fetch('data.json');
+            const data = await response.json();
+
+            // 날씨 데이터 업데이트
+            const weatherMap = {};
+            if (data.weather && Array.isArray(data.weather)) {
+                data.weather.forEach(city => {
+                    weatherMap[city.city] = city;
+                });
+            }
+
+            // 각 도시별로 표시
+            const cities = [
+                { name: '호치민', id: 'saigon' },
+                { name: '하노이', id: 'hanoi' },
+                { name: '다낭', id: 'danang' },
+                { name: '나트랑', id: 'nhatrang' },
+                { name: '달랏', id: 'dalat' }
+            ];
+
+            cities.forEach(city => {
+                const weather = weatherMap[city.name];
+                if (weather) {
+                    document.getElementById(`${city.id}-high`).textContent = weather.high + '°';
+                    document.getElementById(`${city.id}-low`).textContent = weather.low + '°';
+                    document.getElementById(`${city.id}-desc`).textContent = weather.desc;
+                }
+            });
+
+            // 환율 데이터 업데이트
+            if (data.exchange) {
+                document.getElementById('krw1000').textContent = data.exchange.krw1000_to_vnd || '--';
+                document.getElementById('krw10000').textContent = data.exchange.krw10000_to_vnd || '--';
+                document.getElementById('vnd1m').textContent = data.exchange.vnd1m_to_krw || '--';
+            }
+
+            // 업데이트 시간 표시
+            if (data.lastUpdated) {
+                document.getElementById('updateTime').textContent = data.lastUpdated;
+                document.getElementById('exchangeNote').textContent = `마지막 업데이트: ${data.lastUpdated}`;
+            }
+
+        } catch (error) {
+            console.error('날씨/환율 데이터 로드 실패:', error);
+        }
+    }
+
+    // 페이지 로드 시 실행
+    document.addEventListener('DOMContentLoaded', loadWeatherAndExchange);
+
+    // 매 1시간마다 새로고침
+    setInterval(loadWeatherAndExchange, 3600000);
+    </script>
+
 </body>
 </html>
