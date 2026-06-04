@@ -3,11 +3,11 @@ import urllib.request
 from datetime import datetime
 
 CITIES = [
-    {"city": "호치민", "region": "남부",  "lat": 10.8231, "lon": 106.6297},
-    {"city": "하노이", "region": "북부",  "lat": 21.0285, "lon": 105.8542},
-    {"city": "다낭",   "region": "중부",  "lat": 16.0544, "lon": 108.2022},
+    {"city": "호치민", "region": "남부", "lat": 10.8231, "lon": 106.6297},
+    {"city": "하노이", "region": "북부", "lat": 21.0285, "lon": 105.8542},
+    {"city": "다낭", "region": "중부", "lat": 16.0544, "lon": 108.2022},
     {"city": "나트랑", "region": "남중부","lat": 12.2388, "lon": 109.1967},
-    {"city": "달랏",   "region": "고원",  "lat": 11.9404, "lon": 108.4583},
+    {"city": "달랏", "region": "고원", "lat": 11.9404, "lon": 108.4583},
 ]
 
 WMO = {
@@ -21,29 +21,41 @@ WMO = {
 }
 
 def fetch(url, retries=3, delay=10):
-      import time
-      for i in range(retries):
-          try:
-              with urllib.request.urlopen(url, timeout=15) as r:
-                  return json.loads(r.read())
-          except Exception as e:
-              if i < retries - 1:
-                  print(f"  [재시도 {i+1}/{retries-1}] {e}")
-                  time.sleep(delay)
-              else:
-                  raise
+    import time
+    for i in range(retries):
+        try:
+            with urllib.request.urlopen(url, timeout=15) as r:
+                return json.loads(r.read())
+        except Exception as e:
+            if i < retries - 1:
+                print(f" [재시도 {i+1}/{retries-1}] {e}")
+                time.sleep(delay)
+            else:
+                raise
 
 def get_weather(lat, lon):
+    """현재 기온, 일일 최고/최저 기온, 날씨 상태 가져오기"""
     url = (
         f"https://api.open-meteo.com/v1/forecast"
         f"?latitude={lat}&longitude={lon}"
         f"&current=temperature_2m,weathercode"
+        f"&daily=temperature_2m_max,temperature_2m_min"
         f"&timezone=Asia%2FHo_Chi_Minh"
     )
     d = fetch(url)
-    temp = str(round(d["current"]["temperature_2m"]))
+    
+    # 현재 온도
+    current_temp = str(round(d["current"]["temperature_2m"]))
+    
+    # 오늘 최고/최저 기온 (첫 번째 값)
+    daily = d["daily"]
+    high_temp = str(round(daily["temperature_2m_max"][0]))
+    low_temp = str(round(daily["temperature_2m_min"][0]))
+    
+    # 날씨 상태
     desc = WMO.get(d["current"]["weathercode"], "맑음")
-    return temp, desc
+    
+    return current_temp, high_temp, low_temp, desc
 
 def get_exchange():
     d = fetch("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/krw.json")
@@ -51,22 +63,38 @@ def get_exchange():
     fmt = lambda n: f"{round(n):,}"
     return fmt(rate * 1000), fmt(rate * 10000), fmt(1_000_000 / rate)
 
+# ============================================================================
+# 날씨 정보 수집
+# ============================================================================
 weather = []
 for c in CITIES:
-    temp, desc = get_weather(c["lat"], c["lon"])
-    weather.append({"city": c["city"], "region": c["region"], "desc": desc, "temp": temp})
-    print(f"  {c['city']}: {temp}°C, {desc}")
+    current, high, low, desc = get_weather(c["lat"], c["lon"])
+    weather.append({
+        "city": c["city"],
+        "region": c["region"],
+        "current": current,
+        "low": low,
+        "high": high,
+        "desc": desc
+    })
+    print(f" {c['city']}: {low}°C ~ {high}°C, {desc}")
 
+# ============================================================================
+# 환율 정보 수집
+# ============================================================================
 krw1000, krw10000, vnd1m = get_exchange()
-print(f"  환율: 1,000원={krw1000}동 / 100만동={vnd1m}원")
+print(f" 환율: 1,000원={krw1000}동 / 100만동={vnd1m}원")
 
+# ============================================================================
+# data.json 업데이트
+# ============================================================================
 with open("data.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 data["lastUpdated"] = datetime.utcnow().strftime("%Y-%m-%d")
-data["exchange"]["krw1000_to_vnd"]  = krw1000
+data["exchange"]["krw1000_to_vnd"] = krw1000
 data["exchange"]["krw10000_to_vnd"] = krw10000
-data["exchange"]["vnd1m_to_krw"]    = vnd1m
+data["exchange"]["vnd1m_to_krw"] = vnd1m
 data["weather"] = weather
 
 with open("data.json", "w", encoding="utf-8") as f:
