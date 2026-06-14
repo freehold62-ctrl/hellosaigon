@@ -1973,7 +1973,16 @@
 
     // 페이지 로드 시 즉시 실행
     loadDailyData();
-
+    // [최신화] 앱을 다시 켜거나 화면으로 돌아올 때마다 데이터 다시 불러오기
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'visible') loadDailyData();
+    });
+    window.addEventListener('focus', loadDailyData);
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted) loadDailyData();
+    });
+    // [최신화] 앱을 오래 켜둬도 30분마다 자동으로 갱신
+    setInterval(loadDailyData, 30 * 60 * 1000);
     // Daily 페이지 진입 시에도 새로고침 (최신 데이터 보장)
     const _origGoPage_daily = goPage;
     goPage = function(name) {
