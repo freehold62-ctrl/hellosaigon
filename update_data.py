@@ -1,6 +1,6 @@
 import json
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 CITIES = [
     {"city": "호치민", "region": "남부", "lat": 10.8231, "lon": 106.6297},
@@ -43,18 +43,15 @@ def get_weather(lat, lon):
         f"&timezone=Asia%2FHo_Chi_Minh"
     )
     d = fetch(url)
-    
-    # 현재 온도
+
     current_temp = str(round(d["current"]["temperature_2m"]))
-    
-    # 오늘 최고/최저 기온 (첫 번째 값)
+
     daily = d["daily"]
     high_temp = str(round(daily["temperature_2m_max"][0]))
     low_temp = str(round(daily["temperature_2m_min"][0]))
-    
-    # 날씨 상태
+
     desc = WMO.get(d["current"]["weathercode"], "맑음")
-    
+
     return current_temp, high_temp, low_temp, desc
 
 def get_exchange():
@@ -91,7 +88,8 @@ print(f" 환율: 1,000원={krw1000}동 / 100만동={vnd1m}원")
 with open("data.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
-data["lastUpdated"] = datetime.utcnow().strftime("%Y-%m-%d")
+KST = timezone(timedelta(hours=9))
+data["lastUpdated"] = datetime.now(KST).strftime("%Y-%m-%d")
 data["exchange"]["krw1000_to_vnd"] = krw1000
 data["exchange"]["krw10000_to_vnd"] = krw10000
 data["exchange"]["vnd1m_to_krw"] = vnd1m
