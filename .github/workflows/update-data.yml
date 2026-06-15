@@ -2,12 +2,14 @@ name: 날씨환율 자동 업데이트
 
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 21 * * *'
   workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Seoul
     permissions:
       contents: write
     steps:
