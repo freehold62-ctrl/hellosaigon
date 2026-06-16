@@ -1,5 +1,6 @@
 import json
 import urllib.request
+import urllib.error
 from datetime import datetime, timezone, timedelta
 
 CITIES = [
@@ -20,15 +21,25 @@ WMO = {
     95: "뇌우", 96: "뇌우·우박", 99: "뇌우·우박",
 }
 
-def fetch(url, retries=3, delay=10):
+def fetch(url, retries=3, delay=5):
+    """API 호출. 실패 시 원인을 자세히 출력하고 재시도한다."""
     import time
     for i in range(retries):
         try:
             with urllib.request.urlopen(url, timeout=15) as r:
                 return json.loads(r.read())
-        except Exception as e:
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", "ignore")
+            print(f" [HTTP {e.code}] 요청 거부됨")
+            print(f"   주소: {url}")
+            print(f"   응답: {body[:300]}")
             if i < retries - 1:
-                print(f" [재시도 {i+1}/{retries-1}] {e}")
+                time.sleep(delay)
+            else:
+                raise
+        except Exception as e:
+            print(f" [재시도 {i+1}/{retries}] {type(e).__name__}: {e}")
+            if i < retries - 1:
                 time.sleep(delay)
             else:
                 raise
@@ -38,19 +49,23 @@ def get_weather(lat, lon):
     url = (
         f"https://api.open-meteo.com/v1/forecast"
         f"?latitude={lat}&longitude={lon}"
-        f"&current=temperature_2m,weathercode"
+        f"&current=temperature_2m,weather_code"
         f"&daily=temperature_2m_max,temperature_2m_min"
         f"&timezone=Asia%2FHo_Chi_Minh"
     )
     d = fetch(url)
 
-    current_temp = str(round(d["current"]["temperature_2m"]))
+    cur = d["current"]
+    current_temp = str(round(cur["temperature_2m"]))
+
+    # 신형(weather_code) / 구형(weathercode) 키 모두 대응
+    code = cur.get("weather_code", cur.get("weathercode", 0))
 
     daily = d["daily"]
     high_temp = str(round(daily["temperature_2m_max"][0]))
     low_temp = str(round(daily["temperature_2m_min"][0]))
 
-    desc = WMO.get(d["current"]["weathercode"], "맑음")
+    desc = WMO.get(code, "맑음")
 
     return current_temp, high_temp, low_temp, desc
 
@@ -65,6 +80,7 @@ def get_exchange():
 # ============================================================================
 weather = []
 for c in CITIES:
+    print(f"[날씨] {c['city']} 수집 중...")
     current, high, low, desc = get_weather(c["lat"], c["lon"])
     weather.append({
         "city": c["city"],
@@ -79,6 +95,7 @@ for c in CITIES:
 # ============================================================================
 # 환율 정보 수집
 # ============================================================================
+print("[환율] 수집 중...")
 krw1000, krw10000, vnd1m = get_exchange()
 print(f" 환율: 1,000원={krw1000}동 / 100만동={vnd1m}원")
 
