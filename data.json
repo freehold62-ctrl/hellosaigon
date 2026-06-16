@@ -3,17 +3,17 @@
     {
       "city": "호치민",
       "region": "남부",
-      "current": "25",
-      "low": "25",
-      "high": "33",
-      "desc": "구름 많음"
+      "current": "26",
+      "low": "26",
+      "high": "34",
+      "desc": "흐림"
     },
     {
       "city": "하노이",
       "region": "북부",
       "current": "27",
-      "low": "26",
-      "high": "33",
+      "low": "27",
+      "high": "32",
       "desc": "흐림"
     },
     {
@@ -21,7 +21,7 @@
       "region": "중부",
       "current": "27",
       "low": "27",
-      "high": "36",
+      "high": "37",
       "desc": "흐림"
     },
     {
@@ -35,10 +35,10 @@
     {
       "city": "달랏",
       "region": "고원",
-      "current": "16",
+      "current": "17",
       "low": "16",
-      "high": "26",
-      "desc": "구름 많음"
+      "high": "27",
+      "desc": "대체로 맑음"
     }
   ],
   "exchange": {
