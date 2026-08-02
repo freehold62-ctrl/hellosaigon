@@ -14,7 +14,7 @@
       "current": "25",
       "low": "25",
       "high": "32",
-      "desc": "흐림"
+      "desc": "뇌우"
     },
     {
       "city": "다낭",
@@ -29,22 +29,22 @@
       "region": "남중부",
       "current": "27",
       "low": "27",
-      "high": "33",
+      "high": "34",
       "desc": "흐림"
     },
     {
       "city": "달랏",
       "region": "고원",
-      "current": "17",
+      "current": "18",
       "low": "17",
-      "high": "24",
+      "high": "25",
       "desc": "흐림"
     }
   ],
   "exchange": {
-    "krw1000_to_vnd": "18,192",
-    "krw10000_to_vnd": "181,922",
-    "vnd1m_to_krw": "54,969"
+    "krw1000_to_vnd": "18,234",
+    "krw10000_to_vnd": "182,342",
+    "vnd1m_to_krw": "54,842"
   },
-  "lastUpdated": "2026-08-02"
+  "lastUpdated": "2026-08-03"
 }
