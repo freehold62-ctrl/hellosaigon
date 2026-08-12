@@ -5,7 +5,7 @@
       "region": "남부",
       "current": "26",
       "low": "26",
-      "high": "33",
+      "high": "34",
       "desc": "맑음"
     },
     {
@@ -27,24 +27,24 @@
     {
       "city": "나트랑",
       "region": "남중부",
-      "current": "28",
-      "low": "28",
-      "high": "34",
-      "desc": "구름 많음"
+      "current": "27",
+      "low": "27",
+      "high": "35",
+      "desc": "대체로 맑음"
     },
     {
       "city": "달랏",
       "region": "고원",
       "current": "18",
       "low": "18",
-      "high": "23",
+      "high": "25",
       "desc": "흐림"
     }
   ],
   "exchange": {
-    "krw1000_to_vnd": "18,468",
-    "krw10000_to_vnd": "184,683",
-    "vnd1m_to_krw": "54,147"
+    "krw1000_to_vnd": "18,463",
+    "krw10000_to_vnd": "184,627",
+    "vnd1m_to_krw": "54,163"
   },
-  "lastUpdated": "2026-08-12"
+  "lastUpdated": "2026-08-13"
 }
