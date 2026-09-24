@@ -3,48 +3,48 @@
     {
       "city": "호치민",
       "region": "남부",
-      "current": "24",
-      "low": "24",
+      "current": "25",
+      "low": "25",
       "high": "30",
-      "desc": "흐림"
+      "desc": "이슬비"
     },
     {
       "city": "하노이",
       "region": "북부",
       "current": "25",
-      "low": "24",
+      "low": "25",
       "high": "31",
-      "desc": "맑음"
+      "desc": "대체로 맑음"
     },
     {
       "city": "다낭",
       "region": "중부",
-      "current": "25",
-      "low": "25",
-      "high": "29",
-      "desc": "이슬비"
+      "current": "26",
+      "low": "26",
+      "high": "30",
+      "desc": "흐림"
     },
     {
       "city": "나트랑",
       "region": "남중부",
-      "current": "25",
-      "low": "25",
-      "high": "29",
-      "desc": "이슬비"
+      "current": "26",
+      "low": "26",
+      "high": "30",
+      "desc": "흐림"
     },
     {
       "city": "달랏",
       "region": "고원",
-      "current": "18",
-      "low": "18",
+      "current": "17",
+      "low": "17",
       "high": "20",
-      "desc": "비"
+      "desc": "흐림"
     }
   ],
   "exchange": {
-    "krw1000_to_vnd": "19,194",
-    "krw10000_to_vnd": "191,941",
-    "vnd1m_to_krw": "52,099"
+    "krw1000_to_vnd": "18,971",
+    "krw10000_to_vnd": "189,706",
+    "vnd1m_to_krw": "52,713"
   },
-  "lastUpdated": "2026-09-24"
+  "lastUpdated": "2026-09-25"
 }
