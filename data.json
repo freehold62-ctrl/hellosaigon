@@ -5,7 +5,7 @@
       "region": "남부",
       "current": "25",
       "low": "25",
-      "high": "30",
+      "high": "31",
       "desc": "흐림"
     },
     {
@@ -14,31 +14,31 @@
       "current": "24",
       "low": "24",
       "high": "32",
-      "desc": "구름 많음"
+      "desc": "대체로 맑음"
     },
     {
       "city": "다낭",
       "region": "중부",
-      "current": "26",
-      "low": "26",
+      "current": "25",
+      "low": "25",
       "high": "30",
-      "desc": "구름 많음"
+      "desc": "흐림"
     },
     {
       "city": "나트랑",
       "region": "남중부",
       "current": "25",
-      "low": "24",
-      "high": "28",
-      "desc": "흐림"
+      "low": "25",
+      "high": "29",
+      "desc": "이슬비"
     },
     {
       "city": "달랏",
       "region": "고원",
       "current": "16",
       "low": "16",
-      "high": "22",
-      "desc": "흐림"
+      "high": "24",
+      "desc": "구름 많음"
     }
   ],
   "exchange": {
@@ -46,5 +46,5 @@
     "krw10000_to_vnd": "193,508",
     "vnd1m_to_krw": "51,677"
   },
-  "lastUpdated": "2026-10-18"
+  "lastUpdated": "2026-10-19"
 }
