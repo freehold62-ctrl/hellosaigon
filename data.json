@@ -3,7 +3,7 @@
     {
       "city": "호치민",
       "region": "남부",
-      "current": "26",
+      "current": "25",
       "low": "25",
       "high": "32",
       "desc": "흐림"
@@ -13,38 +13,38 @@
       "region": "북부",
       "current": "26",
       "low": "26",
-      "high": "32",
-      "desc": "대체로 맑음"
+      "high": "33",
+      "desc": "흐림"
     },
     {
       "city": "다낭",
       "region": "중부",
-      "current": "24",
-      "low": "24",
+      "current": "25",
+      "low": "25",
       "high": "31",
-      "desc": "맑음"
+      "desc": "안개"
     },
     {
       "city": "나트랑",
       "region": "남중부",
-      "current": "25",
-      "low": "24",
+      "current": "23",
+      "low": "23",
       "high": "30",
-      "desc": "흐림"
+      "desc": "안개"
     },
     {
       "city": "달랏",
       "region": "고원",
-      "current": "15",
+      "current": "13",
       "low": "13",
       "high": "26",
-      "desc": "구름 많음"
+      "desc": "흐림"
     }
   ],
   "exchange": {
-    "krw1000_to_vnd": "19,507",
-    "krw10000_to_vnd": "195,068",
-    "vnd1m_to_krw": "51,264"
+    "krw1000_to_vnd": "19,374",
+    "krw10000_to_vnd": "193,737",
+    "vnd1m_to_krw": "51,616"
   },
-  "lastUpdated": "2026-10-24"
+  "lastUpdated": "2026-10-25"
 }
