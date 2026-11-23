@@ -239,14 +239,15 @@ def main():
             print(f" {c['city']}: {low}°C ~ {high}°C, {desc}")
         except Exception as e:
             old = prev_weather.get(c["city"])
-            if isinstance(old, dict):
+            fields = ("current", "low", "high", "desc") if isinstance(old, dict) else ()
+            if fields and all(str(old.get(k, "")).strip() for k in fields):
                 weather.append({
                     "city": c["city"],
                     "region": c["region"],
-                    "current": str(old.get("current", "")),
-                    "low": str(old.get("low", "")),
-                    "high": str(old.get("high", "")),
-                    "desc": old.get("desc", ""),
+                    "current": str(old["current"]),
+                    "low": str(old["low"]),
+                    "high": str(old["high"]),
+                    "desc": old["desc"],
                 })
                 kept_cities.append(c["city"])
                 print(f" ⚠️ {c['city']} 실패 — 기존 값 유지 ({e})")
@@ -285,11 +286,16 @@ def main():
     # ---------------- data.json 저장 (스키마 유지) ----------------
     now_kst = datetime.now(timezone(timedelta(hours=9)))
     data["weather"] = weather
-    data["exchange"] = {
-        "krw1000_to_vnd": krw1000,
-        "krw10000_to_vnd": krw10000,
-        "vnd1m_to_krw": vnd1m,
-    }
+    prev_has_exchange = all(
+        str(prev_exchange.get(k, "")).strip()
+        for k in ("krw1000_to_vnd", "krw10000_to_vnd", "vnd1m_to_krw")
+    )
+    if exchange_ok or prev_has_exchange:
+        data["exchange"] = {
+            "krw1000_to_vnd": krw1000,
+            "krw10000_to_vnd": krw10000,
+            "vnd1m_to_krw": vnd1m,
+        }
     data["lastUpdated"] = now_kst.strftime("%Y-%m-%d")
 
     with open("data.json", "w", encoding="utf-8") as f:
