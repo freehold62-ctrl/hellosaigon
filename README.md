@@ -62,7 +62,9 @@ v6는 새 캐시 버전(`hellosaigon-v6`)을 사용합니다.
 
 ## 🗺️ Google Maps API 키
 
-API 키: `AIzaSyALa8SgDGPw9vvqN3Y57L5zkeMAkqnk7Yg`
+API 키: `YOUR_GOOGLE_MAPS_API_KEY`
+
+- 실제 키는 `index.html`의 `GMAPS_API_KEY` 상수에만 둡니다. 이 문서나 다른 파일에는 키를 적지 마세요.
 
 보안 설정 (Google Cloud Console):
 - HTTP 리퍼러 제한: vercel.app, 헬로사이공.com 도메인만 허용
